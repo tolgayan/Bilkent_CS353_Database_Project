@@ -1,1 +1,7 @@
-CS353 Project
+Group Members: 
+
+Enes MERDANE
+Mustafa Oğuz SATOĞLU
+Emre Tolga AYAN
+Şeyma Aybüke ERTEKİN
+
