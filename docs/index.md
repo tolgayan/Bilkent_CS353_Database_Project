@@ -5,4 +5,4 @@
 * Şeyma Aybüke ERTEKİN
 
 ## Documents:
-[Prp]({{ site.baseurl }}/Proposal.pdf)
+[Prp]({{ site.baseurl }}/docs/Proposal.pdf)
