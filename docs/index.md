@@ -5,4 +5,4 @@
 * Şeyma Aybüke ERTEKİN
 
 ## Documents:
-[Proposal](aybukeertekin.github.io/docs/Proposal.pdf)
+[Proposal](www.aybukeertekin.github.io/Bilkent_CS353_Database_Project/docs/Proposal.pdf)
