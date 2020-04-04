@@ -5,4 +5,4 @@
 * Şeyma Aybüke ERTEKİN
 
 ## Documents:
-*http://github.com GitHub
+* https://github.com/aybukeertekin/Bilkent_CS353_Database_Project/blob/master/docs/Project%20Proposal.pdf Proposal
