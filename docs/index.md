@@ -5,4 +5,5 @@
 * Şeyma Aybüke ERTEKİN
 
 ## Documents:
+{{ site.baseurl }}/docs/Proposal.html - automatic!
 [Proposal]({{ site.baseurl }}/docs/Proposal.pdf)
