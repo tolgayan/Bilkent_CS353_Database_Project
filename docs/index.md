@@ -1,4 +1,6 @@
-# Group Members:
+# Scouting Platform for Football Clubs
+
+## Group Members:
 * Enes MERDANE 
 * Mustafa Oğuz SATOĞLU 
 * Emre Tolga AYAN 
