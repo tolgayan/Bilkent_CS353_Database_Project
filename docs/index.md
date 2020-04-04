@@ -5,4 +5,4 @@
 * Şeyma Aybüke ERTEKİN
 
 ## Documents:
-[Proposal](Project Proposal.pdf)
+[Proposal](Proposal.pdf)
