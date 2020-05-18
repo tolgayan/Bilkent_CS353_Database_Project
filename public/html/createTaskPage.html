@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+  .mainpage_head {
+    position: absolute;
+    width: 100%;
+    height: 108px;
+    left: 0px;
+    top: 33px;
+  }
+
+  .mainpage_title {
+    position: absolute;
+    left: 36.04%;
+    right: 36.04%;
+    top: 12.04%;
+    bottom: 38.89%;
+
+    font-family: Gothic A1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 60px;
+    text-align: center;
+
+    color: #000000;
+  }
+
+  .mainpage_header_bg1 {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 27.84%;
+
+    background: #E0CA00;
+  }
+
+  .mainpage_header_bg2 {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 72.22%;
+    bottom: 0%;
+
+    background: #060606;
+  }
+
+  .mainpage_header_home {
+    position: absolute;
+    left: 39.58%;
+    right: 53.47%;
+    top: 75%;
+    bottom: 2.78%;
+
+    font-family: Gabriela;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+
+    color: #FFFFFF;
+  }
+
+  .mainpage_header_about {
+    position: absolute;
+    left: 46.53%;
+    right: 46.53%;
+    top: 75%;
+    bottom: 2.78%;
+
+    font-family: Gabriela;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+
+    color: #FFFFFF;
+  }
+
+  .mainpage_header_contact {
+    position: absolute;
+    left: 53.47%;
+    right: 39.58%;
+    top: 75%;
+    bottom: 2.78%;
+
+    font-family: Gabriela;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+
+    color: #FFFFFF;
+  }
+
+  .mainpage_header_userpanel {
+    position: absolute;
+    left: 82.99%;
+    right: 2.78%;
+    top: 75%;
+    bottom: 8.33%;
+
+    font-family: Gabriela;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+
+    color: #FFFFFF;
+  }
+
+  .mainpage_footer {
+    position: absolute;
+    width: 100%;
+    height: 61px;
+    left: 0px;
+    bottom: 0px;
+    background: #000000;
+  }
+
+  .mainpage_footer_text {
+    position: absolute;
+    width: 100%;
+    height: 34px;
+    left: 598px;
+    bottom: 0px;
+
+    font-family: Esteban;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+  }
+
+  .createTaskPage_canvas {
+    position: absolute;
+    width: 1193px;
+    height: 1889px;
+    left: 123px;
+    top: 228px;
+
+    background: rgba(229, 229, 229, 0.8);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+
+    background: rgba(229, 229, 229, 0.8);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+  }
+
+  .createTaskPage_canvas_tab2 {
+    position: absolute;
+    width: 740px;
+    height: 1891px;
+    left: 453px;
+    top: -1px;
+
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+  }
+
+  .createTaskPage_input_frame_gender {
+    position: absolute;
+    width: 426px;
+    height: 51px;
+    left: 14px;
+    top: 169px;
+  }
+
+  .createTaskPage_input_frame_height {
+    position: absolute;
+    width: 426px;
+    height: 51px;
+    left: 14px;
+    top: 220px;
+  }
+
+  .createTaskPage_input_frame_weight {
+    width: 426px;
+    height: 51px;
+    left: 14px;
+    top: 271px;
+  }
+
+  .createTaskPage_input_frame_age {
+    position: absolute;
+    width: 426px;
+    height: 51px;
+    left: 14px;
+    top: 322px;
+  }
+
+  .createTaskPage_input_frame_position {
+    position: absolute;
+    width: 426px;
+    height: 51px;
+    left: 14px;
+    top: 373px;
+  }
+
+  .createTaskPage_input_frame_time_to_finish_task {
+    position: absolute;
+    width: 426px;
+    height: 51px;
+    left: 14px;
+    top: 431px;
+  }
+
+  .createTaskPage_input_frame_number_of_scouts {
+    position: absolute;
+    width: 426px;
+    height: 51px;
+    left: 14px;
+    top: 489px;
+  }
+
+  .createTaskPage_input_frame_preferred_foot {
+    position: absolute;
+    width: 426px;
+    height: 51px;
+    left: 7px;
+    top: 547px;
+  }
+
+  .createTaskPage_input_frame_salary {
+    position: absolute;
+    width: 426px;
+    height: 51px;
+    left: 14px;
+    top: 605px;
+
+  }
+
+  .createTaskPage_input_frame_transfer_price {
+    position: absolute;
+    width: 426px;
+    height: 51px;
+    left: 14px;
+    top: 663px;
+  }
+
+  .createTaskPage_button_set_task {
+    position: absolute;
+    width: 150px;
+    height: 43px;
+    left: 276px;
+    top: 732px;
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+</style>
+
+<head>
+  <title> TRANSFERMAP </title>
+  <div class="mainpage_head">
+    <div class="mainpage_header_bg1"></div>
+    <div class="mainpage_header_bg2"></div>
+    <a href="mainpage.html" class="mainpage_title">TRANSFERMAP</a>
+    <a href="mainpage.html" class="mainpage_header_home">Home</a>
+    <a href="mainpage.html" class="mainpage_header_about">About</a>
+    <a href="mainpage.html" class="mainpage_header_contact">Contact</a>
+    <div class="mainpage_header_userpanel">Exclusive User Panel</div>
+  </div>
+</head>
+
+<body>
+  <div class="createTaskPage_canvas">
+    <div class="createTaskPage_input_frame_gender"></div>
+    <div class="createTaskPage_input_frame_height"></div>
+    <div class="createTaskPage_input_frame_weight"></div>
+    <div class="createTaskPage_input_frame_age"></div>
+    <div class="createTaskPage_input_frame_position"></div>
+    <div class="createTaskPage_input_frame_time_to_finish_task"></div>
+    <div class="createTaskPage_input_frame_number_of_scouts"></div>
+    <div class="createTaskPage_input_frame_preferred_foot"></div>
+    <div class="createTaskPage_input_frame_salary"></div>
+    <div class="createTaskPage_input_frame_transfer_price"></div>
+    <button class="createTastkPage_button_set_task">Set Task</button>
+  </div>
+
+
+  <!-- <footer>
+    <div class="mainpage_footer">
+      <div class="mainpage_footer_text">CS353 GroupX c</div>
+    </div>
+  </footer> -->
+</body>
+
+</html>
