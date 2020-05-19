@@ -7,7 +7,7 @@ const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     //password: 'naruto1212',
-    database: 'scouting__'
+    database: 'scouting_db'
 });
 
 /**

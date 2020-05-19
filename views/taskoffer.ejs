@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> TRANSFERMAP </title>
+    <div class="mainpage_head">
+        <div class="mainpage_header_bg1"></div>
+        <div class="mainpage_header_bg2"></div>
+        <a href="taskoffer.ejs" class="mainpage_title">TRANSFERMAP</a>
+        <a href="taskoffer.ejs" class="mainpage_header_home">Home</a>
+        <a href="taskoffer.ejs" class="mainpage_header_about">About</a>
+        <a href="taskoffer.ejs" class="mainpage_header_contact">Contact</a>
+        <div class="mainpage_header_userpanel">Exclusive User Panel</div>
+    </div>
+    <link href="/stylesheets/task.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="page_header">Task Offers</div>
+
+
+<div class ="offers">
+    <div id="off"></div>
+</div>
+
+<script>
+<% if (result) { %>
+let ht = '';
+<% for(let i = 0; i < result.length; i++){ %>
+    ht +=
+      `<div class="offer_content">
+      <div class="offer_header">Offerer Club:<%= result[i].username %></div>
+      <div class="offer_body"> <%= result[i].id %></div>
+      </div>`; <% } %>
+    document.getElementById("off").innerHTML = ht;
+    <% } %>
+</script>
+
+<footer>
+    <div class="mainpage_footer">
+        <div class="mainpage_footer_text">CS353 GroupX c</div>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+    .weight{
+        position: absolute;
+        width: 184px;
+        height: 33px;
+        left: 133px;
+        top: 86px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 19px;
+        line-height: 25px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+    
+    .age{
+        position: absolute;
+        width: 184px;
+        height: 33px;
+        left: 133px;
+        top: 116px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 19px;
+        line-height: 25px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+        
+    }
+    
+    .position{
+        position: absolute;
+        width: 184px;
+        height: 33px;
+        left: 133px;
+        top: 146px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 19px;
+        line-height: 25px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+        
+    }
+    .foot{
+        position: absolute;
+        width: 184px;
+        height: 33px;
+        left: 133px;
+        top: 176px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 19px;
+        line-height: 25px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+        
+    }
+    
+    .club{
+        position: absolute;
+        //width: 184px;
+        width: 250px;
+        height: 33px;
+        left: 133px;
+        top: 206px;
+
+        font-family: Gothic A1;
+        font-weight: bold;
+        font-style: normal;
+        font-size: 19px;
+        line-height: 25px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+        
+        
+    }
+    
+    .fee{
+        position: absolute;
+        width: 184px;
+        height: 33px;
+        left: 133px;
+        top: 236px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 19px;
+        line-height: 25px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+        
+    }
+    
+    .checkbox1{
+        position:absolute;
+        top: 10px;
+        left: 390px;
+        height: 20px;
+        width: 20px;
+        background-color: #eee;
+    }
+
+    .checkbox2{
+        position:absolute;
+        top: 11px;
+        left: 390px;
+        height: 20px;
+        width: 20px;
+        background-color: #eee;
+    }
+    .checkbox3{
+        position:absolute;
+        top: 12px;
+        left: 390px;
+        height: 20px;
+        width: 20px;
+        background-color: #eee;
+    }
+    .checkbox4{
+        position: absolute;
+        top: 13px;
+        left: 390px;
+        height: 20px;
+        width: 20px;
+        background-color: #eee;
+    }
+    .checkbox5{
+        position:absolute;
+        top: 14px;
+        left: 390px;
+        height: 20px;
+        width: 20px;
+        background-color: #eee;
+    }
+    .checkbox6{
+        position:absolute;
+        top: 15px;
+        left: 390px;
+        height: 20px;
+        width: 20px;
+        background-color: #eee;
+    }
+
+
+    .mainpage_head {
+        position: absolute;
+        width: 100%;
+        height: 108px;
+        left: 0px;
+        top: 33px;
+    }
+
+    .mainpage_title {
+        position: absolute;
+        left: 36.04%;
+        right: 36.04%;
+        top: 12.04%;
+        bottom: 38.89%;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 60px;
+        text-align: center;
+
+        color: #000000;
+    }
+
+    .mainpage_header_bg1 {
+        position: absolute;
+        left: 0%;
+        right: 0%;
+        top: 0%;
+        bottom: 27.84%;
+
+        background: #E0CA00;
+    }
+
+    .mainpage_header_bg2 {
+        position: absolute;
+        left: 0%;
+        right: 0%;
+        top: 72.22%;
+        bottom: 0%;
+
+        background: #060606;
+    }
+
+    .mainpage_header_home {
+        position: absolute;
+        left: 39.58%;
+        right: 53.47%;
+        top: 75%;
+        bottom: 2.78%;
+
+        font-family: Gabriela;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 23px;
+        text-align: center;
+
+        color: #FFFFFF;
+    }
+
+    .mainpage_header_about {
+        position: absolute;
+        left: 46.53%;
+        right: 46.53%;
+        top: 75%;
+        bottom: 2.78%;
+
+        font-family: Gabriela;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 23px;
+        text-align: center;
+
+        color: #FFFFFF;
+    }
+
+    .mainpage_header_contact {
+        position: absolute;
+        left: 53.47%;
+        right: 39.58%;
+        top: 75%;
+        bottom: 2.78%;
+
+        font-family: Gabriela;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 23px;
+        text-align: center;
+
+        color: #FFFFFF;
+    }
+
+    .mainpage_header_userpanel {
+        position: absolute;
+        left: 82.99%;
+        right: 2.78%;
+        top: 75%;
+        bottom: 8.33%;
+
+        font-family: Gabriela;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 23px;
+        text-align: center;
+
+        color: #FFFFFF;
+    }
+
+    .mainpage_footer {
+        position: absolute;
+        width: 100%;
+        height: 61px;
+        left: 0px;
+        bottom: 0px;
+        background: #000000;
+    }
+
+    .mainpage_footer_text {
+        position: absolute;
+        width: 100%;
+        height: 34px;
+        left: 598px;
+        bottom: 0px;
+
+        font-family: Esteban;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 23px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        color: #FFFFFF;
+    }
+
+    .createTaskPage_canvas {
+        position: absolute;
+        width: 1193px;
+        //height: 1889px;
+        height: 2800px;
+        left: 123px;
+        top: 228px;
+
+        background: rgba(229, 229, 229, 0.8);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+
+        resize: vertical;
+    }
+
+    .createTaskPage_canvas_tab2 {
+        position: absolute;
+        width: 740px;
+        bottom: -2px;
+        left: 453px;
+        top: -1px;
+
+        //background: rgba(255, 255, 255, 0.8);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 12px;
+
+        resize: vertical;
+    }
+
+    .createTaskPage_input_frame_gender {
+        position: absolute;
+        width: 426px;
+        height: 51px;
+        left: 14px;
+        top: 169px;
+    }
+
+    .createTaskPage_input_frame_gender_text {
+        position: absolute;
+        width: 184px;
+        height: 33px;
+        left: 7px;
+        top: 9px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 25px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_input_frame_gender_input {
+        position: absolute;
+        width: 215px;
+        height: 38px;
+        left: 140px;
+        top: 4px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        background: rgba(224, 202, 0, 0.2);
+        border: 2px solid #EDEEB7;
+        box-sizing: border-box;
+        border-radius: 2px;
+    }
+
+    .createTaskPage_input_frame_height {
+        position: absolute;
+        width: 426px;
+        height: 51px;
+        left: 14px;
+        top: 220px;
+    }
+
+    .createTaskPage_input_frame_height_text {
+        position: absolute;
+        width: 184px;
+        height: 33px;
+        left: 7px;
+        top: 9px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 25px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_input_frame_height_input_min {
+        position: absolute;
+        width: 215px;
+        height: 38px;
+        left: 140px;
+        top: 4px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        background: rgba(224, 202, 0, 0.2);
+        border: 2px solid #EDEEB7;
+        box-sizing: border-box;
+        border-radius: 2px;
+    }
+
+
+
+    .createTaskPage_input_frame_weight {
+        position: absolute;
+        width: 426px;
+        height: 51px;
+        left: 14px;
+        top: 271px;
+    }
+
+    .createTaskPage_input_frame_weight_text {
+        position: absolute;
+        width: 184px;
+        height: 33px;
+        left: 7px;
+        top: 9px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 25px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+
+    }
+
+    .createTaskPage_input_frame_weight_input_min {
+        position: absolute;
+        width: 107px;
+        height: 38px;
+        left: 140px;
+        top: 4px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        background: rgba(224, 202, 0, 0.2);
+        border: 2px solid #EDEEB7;
+        box-sizing: border-box;
+        border-radius: 2px;
+    }
+
+    .createTaskPage_input_frame_weight_input_max {
+        position: absolute;
+        width: 107px;
+        height: 38px;
+        left: 253px;
+        top: 4px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        background: rgba(224, 202, 0, 0.2);
+        border: 2px solid #EDEEB7;
+        box-sizing: border-box;
+        border-radius: 2px;
+    }
+
+    .createTaskPage_input_frame_age {
+        position: absolute;
+        width: 426px;
+        height: 51px;
+        left: 14px;
+        top: 322px;
+    }
+
+    .createTaskPage_input_frame_age_text {
+        position: absolute;
+        width: 184px;
+        height: 33px;
+        left: 7px;
+        top: 9px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 25px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_input_frame_age_input_min {
+        position: absolute;
+        width: 107px;
+        height: 38px;
+        left: 140px;
+        top: 4px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        background: rgba(224, 202, 0, 0.2);
+        border: 2px solid #EDEEB7;
+        box-sizing: border-box;
+        border-radius: 2px;
+    }
+
+    .createTaskPage_input_frame_age_input_max {
+        position: absolute;
+        width: 107px;
+        height: 38px;
+        left: 253px;
+        top: 4px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        background: rgba(224, 202, 0, 0.2);
+        border: 2px solid #EDEEB7;
+        box-sizing: border-box;
+        border-radius: 2px;
+    }
+
+    .createTaskPage_input_frame_position {
+        position: absolute;
+        width: 426px;
+        height: 51px;
+        left: 14px;
+        top: 373px;
+    }
+
+    .createTaskPage_input_frame_position_text {
+        position: absolute;
+        width: 184px;
+        height: 33px;
+        left: 7px;
+        top: 9px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 25px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_input_frame_position_input {
+        position: absolute;
+        width: 215px;
+        height: 38px;
+        left: 140px;
+        top: 4px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        background: rgba(224, 202, 0, 0.2);
+        border: 2px solid #EDEEB7;
+        box-sizing: border-box;
+        border-radius: 2px;
+    }
+
+    .createTaskPage_input_frame_time_to_finish_task {
+        position: absolute;
+        width: 426px;
+        height: 51px;
+        left: 14px;
+        top: 431px;
+    }
+
+    .createTaskPage_input_frame_time_to_finish_task_text {
+        position: absolute;
+        width: 184px;
+        height: 33px;
+        left: 7px;
+        top: 9px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 25px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_input_frame_time_to_finish_task_input {
+        position: absolute;
+        width: 215px;
+        height: 38px;
+        left: 140px;
+        top: 4px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        background: rgba(224, 202, 0, 0.2);
+        border: 2px solid #EDEEB7;
+        box-sizing: border-box;
+        border-radius: 2px;
+    }
+
+    .createTaskPage_input_frame_number_of_scouts {
+        position: absolute;
+        width: 426px;
+        height: 51px;
+        left: 14px;
+        top: 489px;
+    }
+
+    .createTaskPage_input_frame_number_of_scouts_text {
+        position: absolute;
+        width: 184px;
+        height: 33px;
+        left: 7px;
+        top: 9px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 25px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_input_frame_number_of_scouts_input {
+        position: absolute;
+        width: 215px;
+        height: 38px;
+        left: 197px;
+        top: 4px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        background: rgba(224, 202, 0, 0.2);
+        border: 2px solid #EDEEB7;
+        box-sizing: border-box;
+        border-radius: 2px;
+    }
+
+    .createTaskPage_input_frame_preferred_foot {
+        position: absolute;
+        width: 426px;
+        height: 51px;
+        left: 7px;
+        top: 547px;
+    }
+
+    .createTaskPage_input_frame_preferred_foot_text {
+        position: absolute;
+        width: 135px;
+        height: 25px;
+        left: 7px;
+        top: 13px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 25px;
+        /* identical to box height */
+
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_input_frame_preferred_foot_input {
+        position: absolute;
+        width: 215px;
+        height: 38px;
+        left: 197px;
+        top: 4px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        background: rgba(224, 202, 0, 0.2);
+        border: 2px solid #EDEEB7;
+        box-sizing: border-box;
+        border-radius: 2px;
+    }
+
+    .createTaskPage_input_frame_salary {
+        position: absolute;
+        width: 426px;
+        height: 51px;
+        left: 14px;
+        top: 605px;
+
+    }
+
+    .createTaskPage_input_frame_salary_text {
+        position: absolute;
+        width: 184px;
+        height: 33px;
+        left: 7px;
+        top: 9px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 25px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_input_frame_salary_input_min {
+        position: absolute;
+        width: 107px;
+        height: 38px;
+        left: 197px;
+        top: 4px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        background: rgba(224, 202, 0, 0.2);
+        border: 2px solid #EDEEB7;
+        box-sizing: border-box;
+        border-radius: 2px;
+    }
+
+    .createTaskPage_input_frame_salary_input_max {
+        position: absolute;
+        width: 107px;
+        height: 38px;
+        left: 310px;
+        top: 4px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        background: rgba(224, 202, 0, 0.2);
+        border: 2px solid #EDEEB7;
+        box-sizing: border-box;
+        border-radius: 2px;
+    }
+
+
+    .createTaskPage_input_frame_transfer_price {
+        position: absolute;
+        width: 426px;
+        height: 51px;
+        left: 14px;
+        top: 663px;
+    }
+
+    .createTaskPage_input_frame_transfer_price_text {
+        position: absolute;
+        width: 184px;
+        height: 33px;
+        left: 7px;
+        top: 9px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 25px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_input_frame_transfer_price_input_min {
+        position: absolute;
+        width: 107px;
+        height: 38px;
+        left: 197px;
+        top: 4px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        background: rgba(224, 202, 0, 0.2);
+        border: 2px solid #EDEEB7;
+        box-sizing: border-box;
+        border-radius: 2px;
+    }
+
+    .createTaskPage_input_frame_transfer_price_input_max {
+        position: absolute;
+        width: 107px;
+        height: 38px;
+        left: 310px;
+        top: 4px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        background: rgba(224, 202, 0, 0.2);
+        border: 2px solid #EDEEB7;
+        box-sizing: border-box;
+        border-radius: 2px;
+    }
+
+    .createTaskPage_button_set_task {
+        position: absolute;
+        width: 150px;
+        height: 43px;
+        left: 276px;
+        //top: 732px;
+        top: 550px;
+        padding-left: 36px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        font-family: Gothic A1;
+        //font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 25px;
+        /* identical to box height */
+
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        color: #2F303E;
+
+        background: #E0CA00;
+        border-radius: 32px;
+    }
+
+    .createTaskPage_canvas_tab2_title {
+        position: absolute;
+        width: 454px;
+        height: 60px;
+        left: 60px;
+        top: 31px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 60px;
+        /* identical to box height */
+
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_1 {
+        position: relative;
+        width: 640px;
+        //height: 206px;
+        height:  300px;
+        left: 480px;
+        top: 90px;
+        margin: 25px;
+
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 12px;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_1_image {
+        position: absolute;
+        width: 91px;
+        height: 91px;
+        left: 27px;
+        top: 33px;
+
+        border: 1px solid #AAAAAA;
+        box-sizing: border-box;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_1_name {
+        position: absolute;
+        width: 417px;
+        height: 33px;
+        left: 133px;
+        top: 26px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 19px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_1_price {
+        position: absolute;
+        width: 417px;
+        height: 33px;
+        left: 133px;
+        top: 56px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 19px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_1_available_scouts {
+        position: absolute;
+        width: 417px;
+        height: 33px;
+        left: 169px;
+        top: 108px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_1_assign_task_button {
+        position: absolute;
+        width: 150px;
+        height: 43px;
+        left: 454px;
+        //top: 146px;
+        top: 225px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        font-size: 16px;
+        background: #E0CA00;
+        border-radius: 32px;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_2 {
+        position: absolute;
+        width: 640px;
+        height: 206px;
+        left: 50px;
+        top: 382px;
+
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 12px;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_2_image {
+        position: absolute;
+        width: 91px;
+        height: 91px;
+        left: 27px;
+        top: 33px;
+
+        background: url(default-profile.png);
+        border: 1px solid #AAAAAA;
+        box-sizing: border-box;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_2_name {
+        position: absolute;
+        width: 417px;
+        height: 33px;
+        left: 133px;
+        top: 33px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_2_price {
+        position: absolute;
+        width: 417px;
+        height: 33px;
+        left: 133px;
+        top: 76px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_2_available_scouts {
+        position: absolute;
+        width: 417px;
+        height: 33px;
+        left: 169px;
+        top: 108px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_2_assign_task_button {
+        position: absolute;
+        width: 150px;
+        height: 43px;
+        left: 454px;
+        top: 146px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        background: #E0CA00;
+        border-radius: 32px;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_3 {
+        position: absolute;
+        width: 640px;
+        height: 206px;
+        left: 50px;
+        top: 637px;
+
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 12px;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_3_image {
+        position: absolute;
+        width: 91px;
+        height: 91px;
+        left: 27px;
+        top: 33px;@localhost
+
+        background: url(default-profile.png);
+        border: 1px solid #AAAAAA;
+        box-sizing: border-box;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_3_name {
+        position: absolute;
+        width: 417px;
+        height: 33px;
+        left: 133px;
+        top: 33px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_3_price {
+        position: absolute;
+        width: 417px;
+        height: 33px;
+        left: 133px;
+        top: 76px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_3_available_scouts {
+        position: absolute;
+        width: 417px;
+        height: 33px;
+        left: 169px;
+        top: 108px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+
+    .createTaskPage_canvas_tab2_agency_frame_3_assign_task_button {
+        position: absolute;
+        width: 150px;
+        height: 43px;
+        left: 454px;
+        top: 146px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        background: #E0CA00;
+        border-radius: 32px;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_4 {
+        position: absolute;
+        width: 640px;
+        height: 206px;
+        left: 50px;
+        top: 892px;
+
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 12px;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_4_image {
+        position: absolute;
+        width: 91px;
+        height: 91px;
+        left: 27px;
+        top: 33px;
+
+        background: url(default-profile.png);
+        border: 1px solid #AAAAAA;
+        box-sizing: border-box;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_4_name {
+        position: absolute;
+        width: 417px;
+        height: 33px;
+        left: 133px;
+        top: 33px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_4_price {
+        position: absolute;
+        width: 417px;
+        height: 33px;
+        left: 133px;
+        top: 76px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_4_available_scouts {
+        position: absolute;
+        width: 417px;
+        height: 33px;
+        left: 169px;
+        top: 108px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_4_assign_task_button {
+        position: absolute;
+        width: 150px;
+        height: 43px;
+        left: 454px;
+        top: 146px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        background: #E0CA00;
+        border-radius: 32px;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_5 {
+        position: absolute;
+        width: 640px;
+        height: 206px;
+        left: 50px;
+        top: 1147px;
+
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 12px;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_5_image {
+        position: absolute;
+        width: 91px;
+        height: 91px;
+        left: 27px;
+        top: 33px;
+
+        background: url(default-profile.png);
+        border: 1px solid #AAAAAA;
+        box-sizing: border-box;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_5_name {
+        position: absolute;
+        width: 417px;
+        height: 33px;
+        left: 133px;
+        top: 33px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_5_price {
+        position: absolute;
+        width: 417px;
+        height: 33px;
+        left: 133px;
+        top: 76px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_5_available_scouts {
+        position: absolute;
+        width: 417px;
+        height: 33px;
+        left: 169px;
+        top: 108px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_5_assign_task_button {
+        position: absolute;
+        width: 150px;
+        height: 43px;
+        left: 454px;
+        top: 146px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        background: #E0CA00;
+        border-radius: 32px;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_6 {
+        position: absolute;
+        width: 640px;
+        height: 206px;
+        left: 50px;
+        top: 1402px;
+
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 12px;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_6_image {
+        position: absolute;
+        width: 91px;
+        height: 91px;
+        left: 27px;
+        top: 33px;
+
+        background: url(default-profile.png);
+        border: 1px solid #AAAAAA;
+        box-sizing: border-box;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_6_name {
+        position: absolute;
+        width: 417px;
+        height: 33px;
+        left: 133px;
+        top: 33px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_6_price {
+        position: absolute;
+        width: 417px;
+        height: 33px;
+        left: 133px;
+        top: 76px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_6_available_scouts {
+        position: absolute;
+        width: 417px;
+        height: 33px;
+        left: 169px;
+        top: 108px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_canvas_tab2_agency_frame_6_assign_task_button {
+        position: absolute;
+        width: 150px;
+        height: 43px;
+        left: 454px;
+        top: 146px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        background: #E0CA00;
+        border-radius: 32px;
+    }
+
+    .createTaskPage_footer_links {
+        position: absolute;
+        width: 454px;
+        height: 33px;
+        left: 123px;
+        top: 1828px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .createTaskPage_footer_link {
+        text-indent: 2em;
+    }
+</style>
+
+<head>
+    <title> TRANSFERMAP </title>
+    <div class="mainpage_head">
+        <div class="mainpage_header_bg1"></div>
+        <div class="mainpage_header_bg2"></div>
+        <a href="mainpage.html" class="mainpage_title">TRANSFERMAP</a>
+        <a href="mainpage.html" class="mainpage_header_home">Home</a>
+        <a href="mainpage.html" class="mainpage_header_about">About</a>
+        <a href="mainpage.html" class="mainpage_header_contact">Contact</a>
+        <div class="mainpage_header_userpanel">Exclusive User Panel</div>
+    </div>
+</head>
+
+<body>
+<div class="createTaskPage_canvas">
+    <form role="form" method="post">
+        <div class="createTaskPage_input_frame_gender">
+            <label for="gender" class="createTaskPage_input_frame_gender_text">Gender:</label>
+            <input type="text" id="gender" name="gender" class="createTaskPage_input_frame_gender_input"><br><br>
+            <input type="checkbox" id="gender" name="checked[]" value="gender" class="checkbox1">
+        </div>
+
+        <div class="createTaskPage_input_frame_height">
+            <label for="nationality" class="createTaskPage_input_frame_height_text">Nationality:</label>
+            <input type="text" id="nationality" name="nationality" class="createTaskPage_input_frame_height_input_min"><br><br>
+            <input type="checkbox" id="nationality" name="checked[]" value="nationality" class="checkbox2">
+        </div>
+        <div class="createTaskPage_input_frame_weight">
+            <label for="height" class="createTaskPage_input_frame_weight_text">Height:</label>
+            <input type="text" id="height_min" name="height" class="createTaskPage_input_frame_weight_input_min"><br><br>
+            <input type="text" id="height_min" name="height" class="createTaskPage_input_frame_weight_input_max"><br><br>
+            <input type="checkbox" id="height" name="checked[]" value="height" class="checkbox3">
+        </div>
+        <div class="createTaskPage_input_frame_age">
+            <label for="age" class="createTaskPage_input_frame_age_text">Age:</label>
+            <input type="text" id="age_min" name="age" class="createTaskPage_input_frame_age_input_min"><br><br>
+            <input type="text" id="age_max" name="age" class="createTaskPage_input_frame_age_input_max"><br><br>
+            <input type="checkbox" id="age" name="checked[]" value="age" class="checkbox4">
+
+        </div>
+        <div class="createTaskPage_input_frame_position">
+            <label for="position" class="createTaskPage_input_frame_position_text">Position:</label>
+            <input type="text" id="position" name="position" class="createTaskPage_input_frame_position_input"><br><br>
+            <input type="checkbox" id="position" name="checked[]" value="position" class="checkbox5">
+        </div>
+        <div class="createTaskPage_input_frame_time_to_finish_task">
+            <label for="time_for_task" class="createTaskPage_input_frame_time_to_finish_task_text">Preffered foot:</label>
+            <input type="text" id="time_for_task" name="time_for_task"
+                   class="createTaskPage_input_frame_time_to_finish_task_input"><br><br>
+            <input type="checkbox" id="gender" name="checked[]" value="foot" class="checkbox6">
+        </div>
+        <input type="submit" value="Search" class="createTaskPage_button_set_task">
+        <!--
+        <div class="createTaskPage_input_frame_number_of_scouts">
+            <label for="number_of_scouts" class="createTaskPage_input_frame_number_of_scouts_text">Number of scouts:</label>
+            <input type="text" id="number_of_scouts" name="number_of_scouts"
+                   class="createTaskPage_input_frame_number_of_scouts_input"><br><br>
+        </div>
+        <div class="createTaskPage_input_frame_preferred_foot">
+            <label for="preferred_foot" class="createTaskPage_input_frame_preferred_foot_text">Preferred foot:</label>
+            <input type="text" id="preferred_foot" name="preferred_foot"
+                   class="createTaskPage_input_frame_preferred_foot_input"><br><br>
+        </div>
+
+        <div class="createTaskPage_input_frame_salary">
+            <label for="salary" class="createTaskPage_input_frame_salary_text">Salary:</label>
+            <input type="text" id="salary_min" name="salary" class="createTaskPage_input_frame_salary_input_min"><br><br>
+            <input type="text" id="salary_max" name="salary" class="createTaskPage_input_frame_salary_input_max"><br><br>
+        </div>
+        <div class="createTaskPage_input_frame_transfer_price">
+            <label for="transfer_price" class="createTaskPage_input_frame_transfer_price_text">Transfer price:</label>
+            <input type="text" id="transfer_price" name="transfer_price"
+                   class="createTaskPage_input_frame_transfer_price_input_min"><br><br>
+            <input type="text" id="transfer_price" name="transfer_price"
+                   class="createTaskPage_input_frame_transfer_price_input_max"><br><br>
+        </div>
+        -->
+    </form>
+
+
+    <div id="frames"></div>
+    <div class="createTaskPage_canvas_tab2">
+        <div class="createTaskPage_canvas_tab2_title">Footballer List</div>
+        <script>
+            <% if (footballers) { %>
+            let ht = '';
+            <% for(let i = 0; i < footballers.length; i++){ %>
+            ht += '\
+                <div class="createTaskPage_canvas_tab2_agency_frame_1">\
+                    <img src= "<%=footballers[i].image%>" class="createTaskPage_canvas_tab2_agency_frame_1_image">\
+                    <div class="createTaskPage_canvas_tab2_agency_frame_1_name">Name: <%=footballers[i].forename%> <%= footballers[i].surname %></div>\
+                <div class="createTaskPage_canvas_tab2_agency_frame_1_price">Nationality:<%= footballers[i].nationality %></div>\
+                <div class="weight">Height: \t<%= footballers[i].height %></div>\
+                <div class="age">Age: \t<%= footballers[i].age %></div>\
+                <div class="position">Position: \t<%= footballers[i].position %></div>\
+                <div class="foot">Foot: \t<%= footballers[i].foot %></div>\
+                <div class="club">Club: \t<%= footballers[i].club_name %></div>\
+                \<div class="fee">Transfer Fee: \t<%= footballers[i].transfer_price%></div>\
+                <button class="createTaskPage_canvas_tab2_agency_frame_1_assign_task_button">Add to Report</button>\
+                </div> ' ; <% } %>
+            document.getElementById("frames").innerHTML = ht;
+
+            <% } %>
+        </script>
+
+        <!--
+        <div class="createTaskPage_footer_links">
+            <a href="#" class="createTaskPage_footer_link">1</a>
+            <a href="#" class="createTaskPage_footer_link">2</a>
+            <a href="#" class="createTaskPage_footer_link">3</a>
+            <a href="#" class="createTaskPage_footer_link">4</a>
+            <a href="#" class="createTaskPage_footer_link">Next Page</a>
+        </div>
+      -->
+    </div>
+</div>
+<!-- <footer>
+  <div class="mainpage_footer">
+    <div class="mainpage_footer_text">CS353 GroupX c</div>
+  </div>
+</footer> -->
+</body>
+
+</html>

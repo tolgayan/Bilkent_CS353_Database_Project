@@ -1,0 +1,284 @@
+.mainpage_head {
+    position: absolute;
+    width: 100%;
+    height: 108px;
+    left: 0px;
+    top: 33px;
+    overflow: hidden;
+}
+
+.mainpage_title {
+    position: absolute;
+    left: 36.04%;
+    right: 36.04%;
+    top: 12.04%;
+    bottom: 38.89%;
+
+    font-family: Gothic A1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 60px;
+    text-align: center;
+
+    overflow: hidden;
+    color: #000000;
+}
+
+.mainpage_header_bg1 {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 27.84%;
+    overflow: hidden;
+    background: #E0CA00;
+}
+
+.mainpage_header_bg2 {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 72.22%;
+    bottom: 0%;
+    overflow: hidden;
+
+    background: #060606;
+}
+
+.mainpage_header_home {
+    position: absolute;
+    left: 39.58%;
+    right: 53.47%;
+    top: 75%;
+    bottom: 2.78%;
+    overflow: hidden;
+    font-family: Gabriela;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.mainpage_header_about {
+    position: absolute;
+    left: 46.53%;
+    right: 46.53%;
+    top: 75%;
+    bottom: 2.78%;
+    overflow: hidden;
+    font-family: Gabriela;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.mainpage_header_contact {
+    position: absolute;
+    left: 53.47%;
+    right: 39.58%;
+    top: 75%;
+    bottom: 2.78%;
+    overflow: hidden;
+    font-family: Gabriela;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.mainpage_header_userpanel {
+    position: absolute;
+    left: 82.99%;
+    right: 2.78%;
+    top: 75%;
+    bottom: 8.33%;
+    overflow: hidden;
+    font-family: Gabriela;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+
+.mainpage_body_areyou_text_rect {
+    position: absolute;
+    width: 337px;
+    height: 301px;
+    left: 97px;
+    top: 27px;
+
+    background: #F4F4F4;
+    border-radius: 17px;
+}
+
+
+.mainpage_body_about_us_button {
+    position: absolute;
+    width: 104px;
+    height: 32px;
+    left: 920px;
+    top: 780px;
+
+    font-family: Esteban;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 31px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+
+    color: #131172;
+}
+/*
+This part is special to task offers for agencies
+ **/
+
+.page_header{
+    position: absolute;
+    width: 441px;
+    height: 82px;
+    left: 550px;
+    padding: 115px;
+    overflow: hidden;
+    font-family: Gothic A1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 45px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+.button{
+    position: relative;
+    width: 134px;
+    height: 31.46px;
+    left: 400px;
+    overflow: hidden;
+    font-family: Gothic A1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-right: 25px;
+    margin-left: 25px;
+    float:left;
+    color: #2F303E;
+
+    background: #E0CA00;
+    border-radius: 32px;
+}
+
+
+.offers{
+    position: absolute;
+    min-height: 400px;
+    top: 200px;
+    bottom: 100px;
+    min-width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.offer_content {
+    position:relative;
+    width: 800px;
+    height: 250px;
+    left: 340px;
+    top: 50px;
+    padding: 10px;
+    margin: 15px;
+    border-radius: 27px;
+    background: #F7F7F7;
+}
+
+.offer_header{
+    width: 200px;
+    height: 50px;
+    left: 55px;
+    font-family: Gothic A1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    align-items: center;
+    overflow: hidden;
+
+    color: #000000;
+}
+
+.offer_body{
+    height: 120px;
+
+    font-family: Gothic A1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    align-items: center;
+    overflow: hidden;
+
+    color: #000000;
+}
+
+
+/*
+End of the part
+ */
+
+
+.mainpage_body_news_footer_link {
+    text-indent: 2em;
+}
+
+.mainpage_footer {
+    position: absolute;
+    width: 100%;
+    height: 61px;
+    left: 0px;
+    bottom: 0px;
+    background: #000000;
+    overflow: hidden;
+}
+
+.mainpage_footer_text {
+    position: absolute;
+    width: 100%;
+    height: 34px;
+    left: 598px;
+    bottom: 0px;
+
+    font-family: Esteban;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+
+    color: #FFFFFF;
+}
