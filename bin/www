@@ -176,12 +176,17 @@ function create_tables() {
   db.query(
     "CREATE TABLE IF NOT EXISTS task( \
     id int AUTO_INCREMENT, \
-    transfer_price int, \
-    salary int, \
+    transfer_price_min int, \
+    transfer_price_max int, \
+    salary_min int, \
+    salary_max int, \
     foot VARCHAR(5), \
-    age smallint, \
-    weight smallint, \
-    height smallint, \
+    age_min smallint, \
+    age_max smallint, \
+    weight_min smallint, \
+    weight_max smallint, \
+    height_min smallint, \
+    height_max smallint, \
     position VARCHAR(10), \
     time smallint, \
     scout_num smallint NOT NULL, \
