@@ -105,7 +105,8 @@ function create_tables() {
     country varchar(50), \
     wage_budget int, \
     PRIMARY KEY (user_id), \
-    FOREIGN KEY (user_id) REFERENCES user(user_id));"); 
+    FOREIGN KEY (user_id) REFERENCES user(user_id));"
+  );
 
   // scout agency
   db.query(
@@ -144,7 +145,7 @@ function create_tables() {
     FOREIGN KEY (user_id) REFERENCES user(user_id) );"
   );
 
-// editor
+  // editor
   db.query(
     "CREATE TABLE IF NOT EXISTS editor( \
       user_id	int, \
@@ -153,7 +154,7 @@ function create_tables() {
       FOREIGN KEY (user_id) REFERENCES user(user_id) \
       );"
   );
-      
+
   // news
   db.query(
     "CREATE TABLE IF NOT EXISTS news( \
@@ -169,4 +170,93 @@ function create_tables() {
       foreign key (editor_id) references editor (user_id) \
       );"
   );
+
+  // task table
+  db.query(
+    "CREATE TABLE IF NOT EXISTS task( \
+    id int AUTO_INCREMENT, \
+    transfer_price int, \
+    salary int, \
+    foot VARCHAR(5), \
+    age smallint, \
+    weight smallint, \
+    height smallint, \
+    position VARCHAR(10), \
+    time smallint, \
+    scout_num smallint NOT NULL, \
+    assigned_date DATE NOT NULL, \
+    status ENUM('completed', 'uncompleted'), \
+    agency_id int REFERENCES scout_agency(user_id), \
+    PRIMARY KEY(id));"
+  );
+
+  // scout table
+  db.query(
+    " CREATE TABLE IF NOT EXISTS scout( \
+      user_id	int, \
+      agency_id int, \
+      task_id	int, \
+      scout_name varchar(25) not null, \
+      is_available boolean not null, \
+      primary key (user_id), \
+      foreign key (agency_id) references scout_agency(user_id), \
+      foreign key (user_id) references user(user_id), \
+      foreign key (task_id) references task(id) \
+      );"
+  );
+
+  // assign table
+  db.query(
+    "CREATE TABLE IF NOT EXISTS assign( \
+    task_id int REFERENCES task(id), \
+    club_id int REFERENCES club(user_id), \
+    PRIMARY KEY(club_id, task_id));"
+  );
+
+  // assignment table
+  db.query(
+    "CREATE TABLE IF NOT EXISTS assignment(\
+      scout_id int REFERENCES scout(user_id), \
+      task_id int REFERENCES task(id), \
+      PRIMARY KEY(task_id, scout_id))"
+  );
+
+  //images
+  db.query("CREATE TABLE IF NOT EXISTS images( \
+    id int AUTO_INCREMENT, \
+    image VARCHAR(200), \
+    PRIMARY KEY(id));"
+    );
+
+  // footballer table
+  db.query(
+    "CREATE TABLE IF NOT EXISTS footballer( \
+      player_id int AUTO_INCREMENT, \
+      agent_id int REFERENCES agent(user_id), \
+      forename VARCHAR(25) NOT NULL, \
+      surname VARCHAR(25) NOT NULL, \
+      position VARCHAR(10) NOT NULL,\
+      height smallint, \
+      weight smallint, \
+      birth_date DATE, \
+      foot ENUM('left', 'right'), \
+      salary int, \
+      transfer_price int,\
+      nationality VARCHAR(25), \
+      image_id int REFERENCES image(id), \
+      club_name VARCHAR(50) REFERENCES club(club_name), \
+      PRIMARY KEY(player_id))"
+  );
+  
+  //report table
+  db.query(
+    "CREATE TABLE IF NOT EXISTS final_report( \
+      report_id int AUTO_INCREMENT, \
+      player_id int REFERENCES footballer(player_id), \
+      club_id int REFERENCES club(user_id), \
+      scout_id int REFERENCES scout(user_id), \
+      rating int(1), \
+      comment VARCHAR(1000), \
+      PRIMARY KEY(report_id))"
+  );  
 }
