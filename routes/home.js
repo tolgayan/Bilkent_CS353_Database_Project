@@ -6,7 +6,7 @@ let session;
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  // res.sendFile( 'mainpage.html', {root: 'public/html'});
+  //res.sendFile( 'mainpage.html', {root: 'public/html'});
   res.render('mainpage', {})
 });
 

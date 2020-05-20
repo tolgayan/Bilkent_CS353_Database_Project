@@ -6,7 +6,8 @@ let session;
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.sendFile( 'previousTasksPageClubs.html', {root: 'public/html'});
+  //res.sendFile( 'previousTasksPageClubs.html', {root: 'public/html'});
+  res.render('tasks', {})
 });
 
 router.post('/', function (req, resp){
