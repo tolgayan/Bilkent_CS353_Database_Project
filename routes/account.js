@@ -10,7 +10,6 @@ router.get('/', function(req, res, next) {
         res.redirect( '../login');
     }
     else {
-        console.log(req.session.user);
         var sql='SELECT * FROM user WHERE user_id = ' + req.session.user;
 
         db.query(sql, function (err, data, fields) {

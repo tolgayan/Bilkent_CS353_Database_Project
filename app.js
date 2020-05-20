@@ -9,7 +9,11 @@ const usersRouter = require('./routes/users');
 const sessions = require('express-session');
 const loginRouter = require('./routes/login');
 const signupRouter = require('./routes/signup');
-const accountRouter = require("./routes/account")
+const accountRouter = require("./routes/account");
+const newsRouter = require("./routes/news");
+const addPostRouter = require("./routes/addpost"); 
+
+
 var ejs = require('ejs');
 
 const app = express();
@@ -36,6 +40,8 @@ app.use('/users', usersRouter);
 app.use('/login', loginRouter);
 app.use('/signup', signupRouter);
 app.use("/account", accountRouter);
+app.use("/news", newsRouter);
+app.use("/news/addpost", addPostRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -50,7 +56,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.send(res.locals.message);
 });
 
 

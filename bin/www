@@ -143,4 +143,29 @@ function create_tables() {
     PRIMARY KEY (user_id), \
     FOREIGN KEY (user_id) REFERENCES user(user_id) );"
   );
+
+// editor
+  db.query(
+    "CREATE TABLE IF NOT EXISTS editor( \
+      user_id	int, \
+      name		varchar(80) not null, \
+      primary key (user_id), \
+      FOREIGN KEY (user_id) REFERENCES user(user_id) \
+      );"
+  );
+      
+  // news
+  db.query(
+    "CREATE TABLE IF NOT EXISTS news( \
+      news_id	int AUTO_INCREMENT, \
+      editor_id	int, \
+      date date DEFAULT CURRENT_TIMESTAMP, \
+      title	varchar(25), \
+      content varchar(1000), \
+      category varchar(15), \
+      image_id char(10), \
+      primary key (news_id), \
+      foreign key (editor_id) references editor (user_id) \
+      );"
+  );
 }
