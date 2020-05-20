@@ -42,7 +42,7 @@ router.get("/", function (req, res, next) {
           let stmt = "INSERT INTO news SET ?";
           db.query(stmt, values, (err, result) => {
             if (err) throw err;
-            res.redirect("../");
+            res.redirect("../news");
           });
 
         };

@@ -19,7 +19,6 @@ var ejs = require('ejs');
 const app = express();
 
 // view engine setup
-console.log(__dirname)
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 

@@ -1,8 +1,13 @@
 <html>
-    <head>
-
-    </head>
-    <body>
-        <p>All news will be seen here</p>
-    </body>
+  <head> </head>
+  <body>
+    <p>All news will be seen here</p>
+    <% if(all_news.length!=0){ %> 
+    <% all_news.forEach(function(news) { %>
+    <h1><%= news.title %></h1>
+    <h3><%= news.name %></h3>
+    <p><%= news.category %></p>
+    <p><%= news.content %></p>
+    <% }) %> <% } %>
+  </body>
 </html>
