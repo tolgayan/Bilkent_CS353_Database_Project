@@ -6,23 +6,39 @@ let session;
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    res.sendFile( 'login.html', {root: 'public/html'});
+    if (!req.session.user) {
+        res.sendFile( 'login.html', {root: 'public/html/'});
+    }
+    else {
+        console.log("User already logged in. Current user id: " + req.session.user);
+        res.redirect('../');
+    }
+        
 });
 
 router.post('/', function (req, resp){
     //resp.end(JSON.stringify(response.body));
     session = req.session;
-    let sql = `SELECT id FROM user WHERE username = '${req.body.username}' AND password = '${req.body.password}'`;
+
+    let loginType = req.body.selectpicker;
+    
+    let sql;
+    if (loginType == "club") {
+        sql = "SELECT club_id FROM user";
+    }
+    
+    sql = `SELECT user_id FROM user WHERE email = '${req.body.email}' AND password = '${req.body.password}'`;
+   
     db.query(sql, (err, result) => {
         if(err)
             throw err;
         if(result.length > 0){
-            //resp.send("Logged");
+            console.log(result);            
+            req.session.user = result[0].user_id;
             resp.redirect('/');
-            session.uniqueID = result[0].id;
         }
         else
-            resp.end("Wrong username or password!");
+            resp.end("Wrong email or password!");
     });
 });
 

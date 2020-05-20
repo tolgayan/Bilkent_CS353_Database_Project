@@ -21,9 +21,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(sessions({
   secret: "sfd5gre5g636",
-  resave: true,
+  resave: false,
   saveUninitialized: true
 }));
 

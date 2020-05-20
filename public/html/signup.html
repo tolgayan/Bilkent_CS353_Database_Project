@@ -1,5 +1,43 @@
-<form action="/signup" method="POST">
-    <input type="text" name="username"><br>
-    <input type="password" name="password"><br>
+<h2>Club</h2>
+<form action="/signup" method="POST" class="clubform">
+    <input type="text" name="club_name" placeholder="Club Name"><br>
+    <input type="password" name="password" placeholder="password"><br>
+    <input type="password" name="passwordagain" placeholder="password again"><br>
+    <input type="text" name="email" placeholder="email"><br>
+    <input type="text" name="country" placeholder="county"><br>
+    <input type="hidden" name="formtype" value="club" />
+    <input type="submit" value="signup">    
+</form>
+tolgayan98@gmail.com
+<h2>Agency</h2>
+
+<form action="/signup" method="POST" class="agencyform">
+    <input type="text" name="agencyname" placeholder="agency name"><br>
+    <input type="password" name="password" placeholder="password"><br>
+    <input type="password" name="passwordagain" placeholder="password again"><br>
+    <input type="text" name="email" placeholder="email"><br>   
+    <input type="hidden" name="formtype" value="scout_agency" />
+    <input type="submit" value="signup">    
+</form>
+
+<h2>Agent</h2>
+
+<form action="/signup" method="POST" class="agentform">
+    <input type="text" name="agent_name" placeholder="agent name"><br>
+    <input type="password" name="password" placeholder="password"><br>
+    <input type="password" name="passwordagain" placeholder="password again"><br>
+    <input type="text" name="email" placeholder="email"><br>   
+    <input type="hidden" name="formtype" value="agent" />
+    <input type="submit" value="signup">
+</form>
+
+<h2>Standard</h2>
+
+<form action="/signup" method="POST" class="standardform">
+    <input type="text" name="username" placeholder="user name"><br>
+    <input type="password" name="password" placeholder="password"><br>
+    <input type="password" name="passwordagain" placeholder="password again"><br>
+    <input type="text" name="email" placeholder="email"><br>   
+    <input type="hidden" name="formtype" value="standard" />
     <input type="submit" value="signup">
 </form>
