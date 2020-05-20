@@ -12,7 +12,12 @@ const signupRouter = require('./routes/signup');
 const homeRouter = require('./routes/home');
 const createTaskPageRouter = require('./routes/createTaskPage');
 const previousTasksPageClubsRouter = require('./routes/previousTasksPageClubs');
+const accountRouter = require("./routes/account");
+const newsRouter = require("./routes/news");
+const addPostRouter = require("./routes/addpost"); 
 
+
+var ejs = require('ejs');
 
 const app = express();
 
@@ -25,9 +30,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(sessions({
   secret: "sfd5gre5g636",
-  resave: true,
+  resave: false,
   saveUninitialized: true
 }));
 
@@ -38,6 +44,9 @@ app.use('/signup', signupRouter);
 app.use('/home', homeRouter);
 app.use('/create-task', createTaskPageRouter);
 app.user('/tasks', previousTasksPageClubsRouter);
+app.use("/account", accountRouter);
+app.use("/news", newsRouter);
+app.use("/news/addpost", addPostRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -52,7 +61,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.send(res.locals.message);
 });
 
 

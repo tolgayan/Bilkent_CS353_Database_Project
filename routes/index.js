@@ -1,12 +1,18 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 const db = require('../public/javascripts/db');
 
-let session;
+/* GET home page. */
+router.get("/", function (req, res, next) {
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-    res.sendFile( 'login.html', {root: 'public/html'});
+  var sql = "SELECT * FROM news ORDER BY date DESC";
+
+  db.query(sql, function (err, data, fields) {
+    if (err) throw err;
+       
+  });
+
+  res.render("index", { title: "Express" });
 });
 
 router.post('/', function (req, resp){

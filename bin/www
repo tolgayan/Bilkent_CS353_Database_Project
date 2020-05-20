@@ -4,19 +4,18 @@
  * Module dependencies.
  */
 
-const app = require('../app');
-const debug = require('debug')('app:server');
-const http = require('http');
-const db = require('../public/javascripts/db');
+const app = require("../app");
+const debug = require("debug")("app:server");
+const http = require("http");
+const db = require("../public/javascripts/db");
 
-
-//db.query('CREATE TABLE user(id int AUTO_INCREMENT, username VARCHAR(25), password VARCHAR(25), PRIMARY KEY (id))');
+create_tables();
 
 /**
  * Get port from environment and store in Express.
  */
-const port = normalizePort(process.env.PORT || '4000');
-app.set('port', port);
+const port = normalizePort(process.env.PORT || "4000");
+app.set("port", port);
 
 /**
  * Create HTTP server.
@@ -28,8 +27,8 @@ const server = http.createServer(app);
  */
 
 server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+server.on("error", onError);
+server.on("listening", onListening);
 
 /**
  * Normalize a port into a number, string, or false.
@@ -56,22 +55,20 @@ function normalizePort(val) {
  */
 
 function onError(error) {
-  if (error.syscall !== 'listen') {
+  if (error.syscall !== "listen") {
     throw error;
   }
 
-  const bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+  const bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
+    case "EACCES":
+      console.error(bind + " requires elevated privileges");
       process.exit(1);
       break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
+    case "EADDRINUSE":
+      console.error(bind + " is already in use");
       process.exit(1);
       break;
     default:
@@ -85,10 +82,93 @@ function onError(error) {
 
 function onListening() {
   const addr = server.address();
-  const bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  const bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
+  debug("Listening on " + bind);
+}
+
+function create_tables() {
+  // user
+  db.query(
+    "CREATE TABLE IF NOT EXISTS user(\
+    user_id int AUTO_INCREMENT, \
+    password VARCHAR(25), \
+    email	varchar(50) not null, \
+    usertype varchar(20), \
+    PRIMARY KEY (user_id)); "
+  );
+
+  // club
+  db.query(
+    "CREATE TABLE IF NOT EXISTS club( \
+    user_id int,\
+    club_name	varchar(50) not null, \
+    country varchar(50), \
+    wage_budget int, \
+    PRIMARY KEY (user_id), \
+    FOREIGN KEY (user_id) REFERENCES user(user_id));"); 
+
+  // scout agency
+  db.query(
+    "CREATE TABLE IF NOT EXISTS scout_agency( \
+    user_id int,\
+    agency_name	varchar(50) not null,\
+    price_per_scout	int, \
+    PRIMARY KEY (user_id), \
+    FOREIGN KEY (user_id) REFERENCES user(user_id));"
+  );
+
+  // editor
+  db.query(
+    "CREATE TABLE IF NOT EXISTS editor( \
+    user_id int,\
+    name varchar(80) not null, \
+    PRIMARY KEY (user_id), \
+    FOREIGN KEY (user_id) REFERENCES user(user_id));"
+  );
+
+  // agent
+  db.query(
+    "CREATE TABLE IF NOT EXISTS agent( \
+    user_id int,\
+    agent_name varchar(80), \
+    PRIMARY KEY (user_id), \
+    FOREIGN KEY (user_id) REFERENCES user(user_id));"
+  );
+
+  // standard
+  db.query(
+    "CREATE TABLE IF NOT EXISTS standard( \
+    user_id int,\
+    username varchar(80) not null, \
+    PRIMARY KEY (user_id), \
+    FOREIGN KEY (user_id) REFERENCES user(user_id) );"
+  );
+
+// editor
+  db.query(
+    "CREATE TABLE IF NOT EXISTS editor( \
+      user_id	int, \
+      name		varchar(80), \
+      primary key (user_id), \
+      FOREIGN KEY (user_id) REFERENCES user(user_id) \
+      );"
+  );
+      
+  // news
+  db.query(
+    "CREATE TABLE IF NOT EXISTS news( \
+      news_id	int AUTO_INCREMENT, \
+      editor_id	int, \
+      editor_name varchar(80), \
+      date date DEFAULT CURRENT_TIMESTAMP, \
+      title	varchar(255), \
+      content TEXT, \
+      category varchar(15), \
+      image_id char(10), \
+      primary key (news_id), \
+      foreign key (editor_id) references editor (user_id) \
+      );"
+  );
 }
 
 // user
