@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <title>Express</title>
+  </head>
+  <body>
+    <% if(userData.length!=0){ %> <% if(userData.usertype == "club") {%>
+    <ul>
+      <li>
+        user id: <%=userData.user_id %>
+      </li>
+      <li>
+        club name: <%=userData.club_name %>
+      </li>
+      <li>
+        email: <%=userData.email %>
+      </li>      
+      <li>
+        country: <%=userData.country %>
+      </li>
+      <li>
+        wage budget: <%=userData.wage_budget %>
+      </li>
+    </ul>
+    <% } else if(userData.usertype == "agent") {%>
+    <ul>
+      <li>
+        user id: <%=userData.user_id %>
+      </li>
+      <li>
+        agent name: <%=userData.agent_name %>
+      </li>
+      <li>
+        email: <%=userData.email %>
+      </li>
+      <li>
+        <p>TODO add footballer</p>
+      </li>
+    </ul>
+    <% } else if(userData.usertype == "scout_agency") {%>
+    <ul>
+      <li>
+        user id: <%=userData.user_id %>
+      </li>
+      <li>
+        agency name: <%=userData.agency_name %>
+      </li>
+      <li>
+        email: <%=userData.email %>
+      </li>
+      <li>
+        price per scout: <%=userData.price_per_scout %>
+      </li>
+    </ul>
+    <% } else if(userData.usertype == "standard") {%>
+    <ul>
+      <li>
+        user id: <%=userData.user_id %>
+      </li>
+      <li>
+        user name: <%=userData.user_name %>
+      </li>
+      <li>
+        email: <%=userData.email %>
+      </li>
+    </ul>
+    <% } else {%>
+    <ul>
+      <li>
+        user id: <%=userData.user_id %>
+      </li>
+      <li>
+        email: <%=userData.email %>
+      </li>
+    </ul>
+    <% }} else{ %>
+
+    <p>No Data Found</p>
+
+    <% } %>
+  </body>
+</html>

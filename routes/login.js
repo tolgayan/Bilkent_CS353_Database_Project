@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const db = require('../public/javascripts/db');
 
-let session;
-
 /* GET users listing. */
 router.get('/', function(req, res, next) {
     if (!req.session.user) {
@@ -18,22 +16,13 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function (req, resp){
     //resp.end(JSON.stringify(response.body));
-    session = req.session;
-
-    let loginType = req.body.selectpicker;
-    
-    let sql;
-    if (loginType == "club") {
-        sql = "SELECT club_id FROM user";
-    }
-    
-    sql = `SELECT user_id FROM user WHERE email = '${req.body.email}' AND password = '${req.body.password}'`;
+           
+    let sql = `SELECT user_id FROM user WHERE email = '${req.body.email}' AND password = '${req.body.password}'`;
    
     db.query(sql, (err, result) => {
         if(err)
             throw err;
-        if(result.length > 0){
-            console.log(result);            
+        if(result.length > 0){                 
             req.session.user = result[0].user_id;
             resp.redirect('/');
         }
