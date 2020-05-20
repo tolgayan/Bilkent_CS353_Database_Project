@@ -1,0 +1,13 @@
+<html>
+  <base href="/news/<%=post_data.news_id%>/" />
+
+  <head> </head>
+
+  <body>
+    <h1><%= post_data.title %></h1>
+    <h3><%= post_data.name %></h3>
+    <p><%= post_data.category %></p>
+    <p><%= post_data.content %></p>
+    <% if (editor_mode == 1) {%> <a href="modify/"><button>Modify</button></a> <% } %>
+  </body>
+</html>

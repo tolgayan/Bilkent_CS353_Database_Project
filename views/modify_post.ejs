@@ -1,0 +1,21 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Add Post</h1>
+    <form action="/news/<%= post_data.news_id %>/modify " method="POST">
+      title: <br /><input type="text" name="title" value="<%= post_data.title %>"  /><br />
+      category: <br /><input type="text" name="category" value="<%=post_data.category%>"  /><br />
+      content : <br />
+      <textarea name="content">
+        <%= post_data.content %>
+      </textarea>
+      <input type="hidden" name="formtype" value="modify" /> <br /><br />
+      <input type="submit" value="Save Post" />
+    </form>
+    <form action="/news/<%= post_data.news_id %>/modify " method="POST">
+        <input type="submit" value = "Delete post">
+        <input type="hidden" name="formtype" value="delete" />
+      </form>
+    
+  </body>
+</html>

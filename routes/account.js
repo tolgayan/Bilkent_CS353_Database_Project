@@ -3,7 +3,6 @@ const router = express.Router();
 const db = require('../public/javascripts/db');
 
 
-
 /* GET users listing. */
 router.get('/', function(req, res, next) {
     if (!req.session.user) {
@@ -11,7 +10,7 @@ router.get('/', function(req, res, next) {
     }
     else {
         var sql='SELECT * FROM user WHERE user_id = ' + req.session.user;
-
+        console.log(sql);
         db.query(sql, function (err, data, fields) {
             if (err) throw err;
             

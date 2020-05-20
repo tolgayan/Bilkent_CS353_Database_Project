@@ -17,7 +17,7 @@ router.get("/", function (req, res, next) {
         let usertype = data[0].usertype;
   
         if (usertype == "editor") res.render("add_post");
-        else res.redirect("../");
+        else res.redirect("http://localhost:4000/news");
       });
     }
   });
@@ -42,7 +42,7 @@ router.get("/", function (req, res, next) {
           let stmt = "INSERT INTO news SET ?";
           db.query(stmt, values, (err, result) => {
             if (err) throw err;
-            res.redirect("../news");
+            res.redirect("http://localhost:4000/news");
           });
 
         };
