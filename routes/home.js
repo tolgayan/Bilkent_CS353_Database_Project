@@ -6,11 +6,12 @@ let session;
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.sendFile( 'mainpage.html', {root: 'public/html'});
+  // res.sendFile( 'mainpage.html', {root: 'public/html'});
+  res.render('mainpage', {})
 });
 
 router.post('/', function (req, resp){
-  //resp.end(JSON.stringify(response.body));
+  // resp.end(JSON.stringify(response.body));
   // session = req.session;
   // let sql = `SELECT id FROM user WHERE username = '${req.body.username}' AND password = '${req.body.password}'`;
   // db.query(sql, (err, result) => {
