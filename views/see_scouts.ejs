@@ -1,0 +1,19 @@
+<html>
+  <head> </head>
+
+  <body>
+    <% if(all_scouts.length!=0){ %> <% all_scouts.forEach(function(scout) {
+    %>
+    <% var isavailable = "no"%>    
+    <% if (scout.is_available == 1) isavailable = "yes"%>    
+    <p>name: <%= scout.scout_name %></p>
+    <p>is available: <%= isavailable %></p>
+    <p>task id: <%= scout.task_id %></p>   
+    <form action="." method="POST">
+      <input type="hidden" name="scout_id" value="<%=scout.user_id%>"><br>
+      <input type="submit" value="Delete this scout account">
+    </form>
+    </br> 
+    <% }) %> <% } %>
+  </body>
+</html>
