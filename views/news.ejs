@@ -1,0 +1,22 @@
+<html>
+  <base href="/news/" />
+
+  <head> </head>
+  <body>
+    <p>All news will be seen here</p>
+    <% if (editor_mode == 1){ %>
+    <a href="addpost/">
+      <button>
+        Add New Post
+      </button>
+    </a>
+    <% } %> <% if(all_news.length!=0){ %> <% all_news.forEach(function(news) {
+    %>
+    <h1><%= news.title %></h1>
+    <h3><%= news.name %></h3>
+    <p><%= news.category %></p>
+    <p><%= news.content %></p>
+    <a href="<%= news.news_id %>/"><button>Read All</button></a>
+    <% }) %> <% } %>
+  </body>
+</html>

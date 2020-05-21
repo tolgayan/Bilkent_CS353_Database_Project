@@ -13,12 +13,15 @@ const footballerRouter = require('./routes/footballer');
 const tasks = require('./routes/tasks')
 const reportRouter = require('./routes/report');
 const bodyParser = require('body-parser');
+const accountRouter = require("./routes/account");
+const newsRouter = require("./routes/news");
+const addPostRouter = require("./routes/addpost"); 
+
 const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -40,7 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(sessions({
   secret: "sfd5gre5g636",
-  resave: true,
+  resave: false,
   saveUninitialized: true
 }));
 
@@ -52,7 +55,9 @@ app.use('/offers', offersRouter);
 app.use('/footballer', footballerRouter);
 app.use('/tasks', tasks);
 app.use('/report', reportRouter);
-
+app.use("/account", accountRouter);
+app.use("/news", newsRouter);
+app.use("/news/addpost", addPostRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -66,8 +71,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  //res.render('error');
+  res.send(res.locals.message);
 });
 
-
-module.exports = app
+module.exports = app;

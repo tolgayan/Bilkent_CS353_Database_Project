@@ -1,6 +1,6 @@
 mysql = require('mysql');
 
-/**
+/*
  * Create database connection
  */
 const db = mysql.createConnection({
@@ -10,7 +10,7 @@ const db = mysql.createConnection({
     database: 'scouting_db'
 });
 
-/**
+/*
  * Connect database
  */
 db.connect((err) => {
@@ -20,13 +20,13 @@ db.connect((err) => {
     console.log("MySQL is connected...");
 });
 
-/*
-let sql = 'CREATE DATABASE scouting__';
+
+let sql = 'CREATE DATABASE IF NOT EXISTS scouting_db';
 db.query(sql, (err, result) => {
     if(err)
     throw err;
 console.log(result);
 });
- */
+
 
 module.exports = db;

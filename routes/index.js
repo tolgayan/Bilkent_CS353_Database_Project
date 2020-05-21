@@ -1,27 +1,18 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 const db = require('../public/javascripts/db');
 
 /* GET home page. */
-let users;
-router.get('/', function(req, res, next) {
-  console.log(users);
-  cl(res, func);
-});
+router.get("/", function (req, res, next) {
 
-function cl(res, callback) {
-  db.query("SELECT * FROM user", (err, result) => {
-    if (err) {
-      throw err;
-      console.log("error");
-    }
-    users = result;
-    callback(res);
+  var sql = "SELECT * FROM news ORDER BY date DESC";
+
+  db.query(sql, function (err, data, fields) {
+    if (err) throw err;
+       
   });
-}
 
-function func(res){
-  res.render('../views/taskoffer', { result: users });
-}
+  res.render("index", { title: "Express" });
+});
 
 module.exports = router;

@@ -7,11 +7,11 @@ const db = require("../public/javascripts/db");
 
 let footballer;
 let added = [];
-db.query("CREATE VIEW IF NOT EXISTS players AS\
+db.query("CREATE VIEW IF NOT EXISTS players AS \
           SELECT player_id, forename, surname, image, nationality, height, gender, \
-          position, foot, transfer_price, club_name, (YEAR(CURDATE()) - YEAR(birth_date)) AS age\
+          position, foot, transfer_price, club_name, (YEAR(CURDATE()) - YEAR(birth_date)) AS age \
           FROM images, footballer \
-          WHERE footballer.image_id = images.id\
+          WHERE footballer.image_id = images.id \
           GROUP BY player_id", (err, result) => {
     if (err) {
         throw err;
