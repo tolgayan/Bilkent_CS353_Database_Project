@@ -128,19 +128,34 @@ function create_tables() {
   );
 
   //---------------
-  //task table
+  
+  // task table
   db.query(
-    "CREATE TABLE IF NOT EXISTS task(id int AUTO_INCREMENT, \
-    transfer_price int, salary int, foot VARCHAR(5), age smallint, weight smallint, height smallint, \
-    position VARCHAR(10), time smallint, \
-    scout_num smallint NOT NULL, assigned_date DATE NOT NULL, \
-    status ENUM('completed', 'uncompleted'), agency_id int REFERENCES agency(agency_id), \
+    "CREATE TABLE IF NOT EXISTS task( \
+    id int AUTO_INCREMENT, \
+    transfer_price_min int, \
+    transfer_price_max int, \
+    salary_min int, \
+    salary_max int, \
+    foot VARCHAR(5), \
+    age_min smallint, \
+    age_max smallint, \
+    weight_min smallint, \
+    weight_max smallint, \
+    height_min smallint, \
+    height_max smallint, \
+    position VARCHAR(10), \
+    time smallint, \
+    scout_num smallint NOT NULL, \
+    assigned_date DATE NOT NULL, \
+    status ENUM('completed', 'uncompleted'), \
+    agency_id int REFERENCES scout_agency(user_id), \
     PRIMARY KEY(id));"
   );
 
   //footballer table(REMOVE CLUB NAME RATHER CLUB ID)
   db.query(
-    "CREATE TABLE IF NOT EXISTS footballer(player_id int AUTO_INCREMENT, agent_id int REFERENCES agent(agent_id), \
+    "CREATE TABLE IF NOT EXISTS footballer(player_id int AUTO_INCREMENT, agent_id int REFERENCES agent(user_id), \
     forename VARCHAR(25) NOT NULL, surname VARCHAR(25) NOT NULL, gender ENUM('woman', 'man'), \
     position VARCHAR(10) NOT NULL,\
     height smallint, weight smallint, birth_date DATE, foot ENUM('left', 'right'), salary int, transfer_price int,\
@@ -167,7 +182,7 @@ function create_tables() {
 
   //assign table
   db.query(
-    "CREATE TABLE IF NOT EXISTS assign(task_id int REFERENCES task(id), club_id int REFERENCES club(club_id), PRIMARY KEY(club_id, task_id));"
+    "CREATE TABLE IF NOT EXISTS assign(task_id int REFERENCES task(id), club_id int REFERENCES club(user_id), PRIMARY KEY(club_id, task_id));"
   );
 
   //assignment table
