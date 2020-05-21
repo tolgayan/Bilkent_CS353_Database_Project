@@ -221,7 +221,7 @@ function create_tables() {
   db.query("CREATE TABLE IF NOT EXISTS assign(task_id int REFERENCES task(id), club_id int REFERENCES club(club_id), PRIMARY KEY(club_id, task_id))");
 
   //assignment table
-  db.query("CREATE TABLE IF NOT EXISTS assignment(scout_id int REFERENCES scout(scout_id), \
+  db.query("CREATE TABLE IF NOT EXISTS assignment(scout_id int REFERENCES scout(user_id), \
   status ENUM('complete', 'incomplete'), task_id int REFERENCES task(task_id), PRIMARY KEY(task_id, scout_id))");
 
   //insert images
