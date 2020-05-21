@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+  .mainpage_head {
+    position: absolute;
+    width: 100%;
+    height: 108px;
+    left: 0px;
+    top: 33px;
+  }
+
+  .mainpage_title {
+    position: absolute;
+    left: 36.04%;
+    right: 36.04%;
+    top: 12.04%;
+    bottom: 38.89%;
+
+    font-family: Gothic A1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 60px;
+    text-align: center;
+
+    color: #000000;
+  }
+
+  .mainpage_header_bg1 {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 27.84%;
+
+    background: #E0CA00;
+  }
+
+  .mainpage_header_bg2 {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 72.22%;
+    bottom: 0%;
+
+    background: #060606;
+  }
+
+  .mainpage_header_home {
+    position: absolute;
+    left: 39.58%;
+    right: 53.47%;
+    top: 75%;
+    bottom: 2.78%;
+
+    font-family: Gabriela;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+
+    color: #FFFFFF;
+  }
+
+  .mainpage_header_about {
+    position: absolute;
+    left: 46.53%;
+    right: 46.53%;
+    top: 75%;
+    bottom: 2.78%;
+
+    font-family: Gabriela;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+
+    color: #FFFFFF;
+  }
+
+  .mainpage_header_contact {
+    position: absolute;
+    left: 53.47%;
+    right: 39.58%;
+    top: 75%;
+    bottom: 2.78%;
+
+    font-family: Gabriela;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+
+    color: #FFFFFF;
+  }
+
+  .mainpage_header_userpanel {
+    position: absolute;
+    left: 82.99%;
+    right: 2.78%;
+    top: 75%;
+    bottom: 8.33%;
+
+    font-family: Gabriela;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+
+    color: #FFFFFF;
+  }
+
+  .mainpage_body_joinpart {
+    position: absolute;
+    width: 100%;
+    height: 412px;
+    left: 0px;
+    top: 141px;
+
+    background: #5a6ba1;
+  }
+
+  .mainpage_body_login_button {
+    position: absolute;    
+    width: 137.29px;
+    height: 24.45px;
+    left: 130.36px;
+    top: 300.27px;
+
+    font-family: Gothic A1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 25px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #2F303E;
+
+    background: #DEE6FF;
+    border-radius: 32px;
+  }
+
+  .mainpage_body_signup_button {
+    position: absolute;
+    width: 137.29px;
+    height: 24.45px;
+    left: 300.36px;
+    top: 300.27px;
+
+    font-family: Gothic A1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 25px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #2F303E;
+
+    background: #DEE6FF;
+    border-radius: 32px;
+  }
+
+  .mainpage_body_join_title {
+    position: absolute;
+    width: 402px;
+    height: 63px;
+    left: 91px;
+    top: 200px;
+
+    font-family: Gothic A1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 60px;
+
+    color: #FFFFFF;
+  }
+
+  .mainpage_body_description_text {
+    position: absolute;
+    width: 575px;
+    height: 156px;
+    left: 782px;
+    top: 150px;
+
+    font-family: Gothic A1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+
+    color: #F5F5F5;
+
+  }
+
+  .mainpage_body_areyou_part {
+    position: absolute;
+    width: 1140px;
+    height: 376px;
+    left: 150px;
+    top: 596px;
+
+  }
+
+  .mainpage_body_areyou_text_rect {
+    position: absolute;
+    width: 337px;
+    height: 301px;
+    left: 97px;
+    top: 27px;
+
+    background: #F4F4F4;
+    border-radius: 17px;
+  }
+
+  .mainpage_body_areyou_text {
+    position: absolute;
+    width: 337px;
+    height: 301px;
+    left: 163px;
+    top: 22px;
+
+    font-family: Esteban;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+  }
+
+  .mainpage_body_learn_about_us_text {
+    position: absolute;
+    width: 449px;
+    height: 160px;
+    left: 850px;
+    top: 650px;
+
+    font-family: Esteban;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 31px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+  }
+
+  .mainpage_body_about_us_button {
+    position: absolute;
+    width: 104px;
+    height: 32px;
+    left: 920px;
+    top: 780px;
+
+    font-family: Esteban;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 31px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+
+    color: #131172;
+  }
+
+  .mainpage_body_join_now_button {
+    position: absolute;
+    width: 104px;
+    height: 32px;
+    left: 1070px;
+    top: 780px;
+
+    font-family: Esteban;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 31px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #131172;
+  }
+
+  .mainpage_body_news_content {
+    position: absolute;
+    width: 100%;
+    height: 1344px;
+    left: 150px;
+    top: 946px;
+  }
+
+  .mainpage_body_latest_news_title {
+    position: absolute;
+    width: 441px;
+    height: 82px;
+    left: 390px;
+    top: 39px;
+
+    font-family: Gothic A1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 45px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+  }
+
+  .mainpage_body_latest_news_title_line {
+    position: absolute;
+    width: 1140px;
+    height: 0px;
+    left: 0px;
+    top: 110px;
+
+    border: 1px solid #000000;
+    background: #000000;
+  }
+
+  .dropbtn {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    padding: 3px;
+    font-size: 16px;
+    width: 200px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 15px;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    left: 930px;
+    top: 67px;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown:hover .dropbtn {
+    background-color: #ffffff;
+  }
+
+  .dropbtn_polygon {
+    position: absolute;
+    width: 25px;
+    height: 20px;
+    left: 1117.83px;
+    top: 91.2px;
+
+    background: #000000;
+    transform: rotate(-179.06deg);
+  }
+
+  .mainpage_body_news_list_view {
+    position: absolute;
+    width: 1140px;
+    height: 1344px;
+    left: 150px;
+    top: 946px;
+    z-index: -1;
+  }
+
+  .post1 {
+    position: absolute;
+    width: 1100px;
+    height: 330px;
+    left: 22px;
+    top: 158px;
+    background: #F4F4F4;
+    border-radius: 21px;
+  }
+
+  .mainpage_body_news_post1_img {
+    position: absolute;
+    left: 1.82%;
+    right: 52.73%;
+    top: 0%;
+    bottom: 0.02%;
+  }
+
+  .mainpage_body_news_post1_title {
+    position: absolute;
+    left: 50%;
+    right: 1.27%;
+    top: 13.41%;
+    bottom: 67.6%;
+
+    font-family: Esteban;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 46px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+  }
+
+  .mainpage_body_news_post1_description {
+    position: absolute;
+    left: 49.82%;
+    right: 3.45%;
+    top: 35.2%;
+    bottom: 38.55%;
+
+    font-family: Esteban;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+  }
+
+  .mainpage_body_news_post1_readmore_link {
+    position: absolute;
+    left: 49.82%;
+    right: 38%;
+    top: 89.7%;
+    bottom: 5.45%;
+
+    font-family: Esteban;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+  }
+
+  .post2 {
+    position: absolute;
+    width: 1100px;
+    height: 330px;
+    left: 22px;
+    top: 536px;
+    background: #F4F4F4;
+    border-radius: 21px;
+  }
+
+  .mainpage_body_news_post2_img {
+    position: absolute;
+    left: 1.82%;
+    right: 52.73%;
+    top: 0%;
+    bottom: 0.02%;
+  }
+
+  .mainpage_body_news_post2_title {
+    position: absolute;
+    left: 50%;
+    right: 1.27%;
+    top: 13.41%;
+    bottom: 67.6%;
+
+    font-family: Esteban;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 46px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+  }
+
+  .mainpage_body_news_post2_description {
+    position: absolute;
+    left: 49.82%;
+    right: 3.45%;
+    top: 35.2%;
+    bottom: 38.55%;
+
+    font-family: Esteban;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+  }
+
+  .mainpage_body_news_post2_readmore_link {
+    position: absolute;
+    left: 49.82%;
+    right: 38%;
+    top: 89.7%;
+    bottom: 5.45%;
+
+    font-family: Esteban;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+  }
+
+  .post3 {
+    position: absolute;
+    width: 1100px;
+    height: 330px;
+    left: 22px;
+    top: 914px;
+    background: #F4F4F4;
+    border-radius: 21px;
+  }
+
+  .mainpage_body_news_post3_img {
+    position: absolute;
+    left: 1.82%;
+    right: 52.73%;
+    top: 0%;
+    bottom: 0.02%;
+  }
+
+  .mainpage_body_news_post3_title {
+    position: absolute;
+    left: 50%;
+    right: 1.27%;
+    top: 13.41%;
+    bottom: 67.6%;
+
+    font-family: Esteban;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 46px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+  }
+
+  .mainpage_body_news_post3_description {
+    position: absolute;
+    left: 49.82%;
+    right: 3.45%;
+    top: 35.2%;
+    bottom: 38.55%;
+
+    font-family: Esteban;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+  }
+
+  .mainpage_body_news_post3_readmore_link {
+    position: absolute;
+    left: 49.82%;
+    right: 38%;
+    top: 89.7%;
+    bottom: 5.45%;
+
+    font-family: Esteban;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+  }
+
+  .mainpage_body_news_footer {
+    position: absolute;
+    width: 454px;
+    height: 33px;
+    left: 345px;
+    top: 1281px;
+
+    font-family: Gothic A1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+  }
+
+  .mainpage_body_news_footer_link {
+    text-indent: 2em;
+  }
+
+  .mainpage_footer {
+    position: absolute;
+    width: 100%;
+    height: 61px;
+    left: 0px;
+    bottom: 0px;
+    background: #000000;
+  }
+
+  .mainpage_footer_text {
+    position: absolute;
+    width: 100%;
+    height: 34px;
+    left: 598px;
+    bottom: 0px;
+
+    font-family: Esteban;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+  }
+
+</style>
+
+<head>
+  <title> TRANSFERMAP </title>
+  <div class="mainpage_head">
+    <div class="mainpage_header_bg1"></div>
+    <div class="mainpage_header_bg2"></div>
+    <a href="http://localhost:4000" class="mainpage_title">TRANSFERMAP</a>
+    <a href="http://localhost:4000" class="mainpage_header_home">Home</a>
+    <a href="mainpage.html" class="mainpage_header_about">About</a>
+    <a href="mainpage.html" class="mainpage_header_contact">Contact</a>
+    <a href="http://localhost:4000/account"><div class="mainpage_header_userpanel">Exclusive User Panel</div></a>
+  </div>
+</head>
+
+<body>
+  <div class="mainpage_body_joinpart">
+    <div class="mainpage_body_join_title">
+      JOIN RIGHT NOW
+    </div>
+    <div class="mainpage_body_description_text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat.
+    </div>
+    <a href="http://localhost:4000/login"><button class="mainpage_body_login_button">Login</button></a>
+    <a href="http://localhost:4000/signup"><button class="mainpage_body_signup_button">Sign Up</button></a>
+  </div>
+
+  <div class="mainpage_body_areyou_part">
+    <div class="mainpage_body_areyou_text_rect"></div>
+    <div class="mainpage_body_areyou_text">
+      Are you,
+      <br>A Club Official?
+      <br>A Footballer Agent?
+      <br>A Scouting Agency?
+    </div>
+  </div>
+
+  <div class="mainpage_body_learn_about_us_text">
+    Learn about us and create an account right <br>now to benefit from exclusive features.
+  </div>
+  <a href="mainpage.html" class="mainpage_body_about_us_button">About Us</a>
+  <a href="mainpage.html" class="mainpage_body_join_now_button">Join Now</a>
+  <div class="mainpage_body_news_content">
+    <div class="mainpage_body_latest_news_title">Latest Transfer News</div>
+    <div class="dropdown">
+      <a href="http://localhost:4000/news/"><div class="dropbtn" style="z-index:-123; position: relative; text-align: center;">See all news
+        
+      </div></a>  
+      
+    </div>
+    <div class="mainpage_body_latest_news_title_line"></div>
+  </div>
+  <div id="news_list_view" class="mainpage_body_news_list_view">
+        
+    <% for(var i = 0; i < news.length;i++){ %>
+    <div class="post<%=i+1%>">
+      <img src="../public/images/default_image.jpg" alt="Default Image" class="mainpage_body_news_post<%=i+1%>_img">
+      <div class="mainpage_body_news_post<%=i+1%>_title"><%=news[i].title%></div>
+      <% if (news[i].content.length < 80) {%>
+      <div class="mainpage_body_news_post<%=i+1%>_description"><%=news[i].content%></div>
+      <%}%>
+      <% if (news[i].content.length >= 80) {%>
+      <div class="mainpage_body_news_post<%=i+1%>_description"><%=news[i].content.substring(0, 79)%></div>
+      <%}%>
+      <a href="http://localhost:4000/news/<%=news[i].news_id%>/" class="mainpage_body_news_post<%=i+1%>_readmore_link">Read more..</a>
+    </div>
+    <%}%>  
+    
+</body>
+
+</html>

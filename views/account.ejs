@@ -1,6 +1,8 @@
 <html>
+  
   <head>
     <title>Express</title>
+
   </head>
   <body>
     <% if(userData.length!=0){ %> <% if(userData.usertype == "club") {%>
@@ -13,7 +15,7 @@
       </li>
       <li>
         email: <%=userData.email %>
-      </li>      
+      </li>
       <li>
         country: <%=userData.country %>
       </li>
@@ -32,10 +34,8 @@
       <li>
         email: <%=userData.email %>
       </li>
-      <li>
-        <p>TODO add footballer</p>
-      </li>
     </ul>
+    <a href="http://localhost:4000/account/<%=userData.user_id%>/add_footballer"><button>Add Footballer</button></a>
     <% } else if(userData.usertype == "scout_agency") {%>
     <ul>
       <li>
@@ -49,6 +49,41 @@
       </li>
       <li>
         price per scout: <%=userData.price_per_scout %>
+      </li>
+    </ul>
+    <a href="http://localhost:4000/account/<%=userData.user_id%>/add_scout/"><button>Add Scout</button></a>
+    <a href="http://localhost:4000/account/<%=userData.user_id%>/see_scouts/"><button>See Scouts</button></a>
+    <a href="#"><button>See Tasks</button></a>
+    <% } else if(userData.usertype == "scout") {%>
+    <ul>
+      <li>
+        user id: <%=userData.user_id %>
+      </li>
+      <li>
+        scout name: <%=userData.scout_name %>
+      </li>
+      <li>
+        is available: <%=userData.is_available %>
+      </li>
+      <li>
+        current task id: <%=userData.task_id %>
+      </li>
+      <li>
+        email: <%=userData.email %>
+      </li>
+    </ul>
+    <a href="#"><button>See Tasks</button></a>
+    <a href="search footballer"><button>Search footballer</button></a>
+    <% } else if(userData.usertype == "editor") {%>
+    <ul>
+      <li>
+        user id: <%=userData.user_id %>
+      </li>
+      <li>
+        name: <%=userData.scout_name %>
+      </li>
+      <li>
+        email: <%=userData.email %>
       </li>
     </ul>
     <% } else if(userData.usertype == "standard") {%>
@@ -72,7 +107,13 @@
         email: <%=userData.email %>
       </li>
     </ul>
-    <% }} else{ %>
+    <% } %> 
+    <a href="http://localhost:4000/account/<%=userData.user_id %>/modify"><button>Edit Info</button></a>
+    <form action="http://localhost:4000/account/" method="POST">
+      <input type="hidden" name="buttontype" value="logout">
+      <input type="submit" name="logout" value="logout">
+    </form>
+    <%} else{ %>
 
     <p>No Data Found</p>
 

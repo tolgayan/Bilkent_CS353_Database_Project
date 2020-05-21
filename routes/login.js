@@ -5,10 +5,10 @@ const db = require('../public/javascripts/db');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
     if (!req.session.user) {
-        res.sendFile( 'login.html', {root: 'public/html/'});
+        res.render('login.ejs');
     }
     else {
-        console.log("User already logged in. Current user id: " + req.session.user);
+        res.send("User already logged in");
         res.redirect('../');
     }
 
@@ -24,10 +24,14 @@ router.post('/', function (req, resp){
             throw err;
         if(result.length > 0){                 
             req.session.user = result[0].user_id;
+
             resp.redirect('/');
         }
-        else
-            resp.end("Wrong email or password!");
+        else {
+            resp.redirect("http://localhost:4000/login");
+        }
+        
+            
     });
 });
 
