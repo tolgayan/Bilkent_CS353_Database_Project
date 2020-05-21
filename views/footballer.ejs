@@ -312,7 +312,7 @@
         position: absolute;
         width: 1193px;
         //height: 1889px;
-        height: 2800px;
+        height: 3100px;
         left: 123px;
         top: 228px;
 
@@ -941,11 +941,10 @@
     }
 
     .createTaskPage_canvas_tab2_agency_frame_1_assign_task_button {
-        position: absolute;
+        position:absolute;
         width: 150px;
         height: 43px;
         left: 454px;
-        //top: 146px;
         top: 225px;
 
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -1449,107 +1448,94 @@
 
 <body>
 <div class="createTaskPage_canvas">
-    <form role="form" method="post">
+    <form role="form" action = "/footballer/search" method="post">
         <div class="createTaskPage_input_frame_gender">
             <label for="gender" class="createTaskPage_input_frame_gender_text">Gender:</label>
             <input type="text" id="gender" name="gender" class="createTaskPage_input_frame_gender_input"><br><br>
-            <input type="checkbox" id="gender" name="checked[]" value="gender" class="checkbox1">
+            <input type="checkbox" id="gender_c" name="checkbox" value="gender"  class="checkbox1">
         </div>
 
         <div class="createTaskPage_input_frame_height">
             <label for="nationality" class="createTaskPage_input_frame_height_text">Nationality:</label>
             <input type="text" id="nationality" name="nationality" class="createTaskPage_input_frame_height_input_min"><br><br>
-            <input type="checkbox" id="nationality" name="checked[]" value="nationality" class="checkbox2">
+            <input type="checkbox" id="nationality_c" name="checkbox" value="nationality"  class="checkbox2">
         </div>
         <div class="createTaskPage_input_frame_weight">
             <label for="height" class="createTaskPage_input_frame_weight_text">Height:</label>
-            <input type="text" id="height_min" name="height" class="createTaskPage_input_frame_weight_input_min"><br><br>
-            <input type="text" id="height_min" name="height" class="createTaskPage_input_frame_weight_input_max"><br><br>
-            <input type="checkbox" id="height" name="checked[]" value="height" class="checkbox3">
+            <input type="text" id="height" name="height" class="createTaskPage_input_frame_weight_input_min"><br><br>
+            <input type="text" id="height" name="height" class="createTaskPage_input_frame_weight_input_max"><br><br>
+            <input type="checkbox" id="height_c" name="checkbox" value="height"  class="checkbox3">
         </div>
         <div class="createTaskPage_input_frame_age">
             <label for="age" class="createTaskPage_input_frame_age_text">Age:</label>
-            <input type="text" id="age_min" name="age" class="createTaskPage_input_frame_age_input_min"><br><br>
-            <input type="text" id="age_max" name="age" class="createTaskPage_input_frame_age_input_max"><br><br>
-            <input type="checkbox" id="age" name="checked[]" value="age" class="checkbox4">
+            <input type="text" id="age" name="age" class="createTaskPage_input_frame_age_input_min"><br><br>
+            <input type="text" id="age" name="age" class="createTaskPage_input_frame_age_input_max"><br><br>
+            <input type="checkbox" id="age_c" name="checkbox" value="age"  class="checkbox4">
 
         </div>
         <div class="createTaskPage_input_frame_position">
             <label for="position" class="createTaskPage_input_frame_position_text">Position:</label>
             <input type="text" id="position" name="position" class="createTaskPage_input_frame_position_input"><br><br>
-            <input type="checkbox" id="position" name="checked[]" value="position" class="checkbox5">
+            <input type="checkbox" id="position" name="checkbox" value="position" class="checkbox5">
         </div>
         <div class="createTaskPage_input_frame_time_to_finish_task">
             <label for="time_for_task" class="createTaskPage_input_frame_time_to_finish_task_text">Preffered foot:</label>
             <input type="text" id="time_for_task" name="time_for_task"
                    class="createTaskPage_input_frame_time_to_finish_task_input"><br><br>
-            <input type="checkbox" id="gender" name="checked[]" value="foot" class="checkbox6">
+            <input type="checkbox" id="gender" name="checkbox" value="foot" class="checkbox6">
         </div>
         <input type="submit" value="Search" class="createTaskPage_button_set_task">
-        <!--
-        <div class="createTaskPage_input_frame_number_of_scouts">
-            <label for="number_of_scouts" class="createTaskPage_input_frame_number_of_scouts_text">Number of scouts:</label>
-            <input type="text" id="number_of_scouts" name="number_of_scouts"
-                   class="createTaskPage_input_frame_number_of_scouts_input"><br><br>
-        </div>
-        <div class="createTaskPage_input_frame_preferred_foot">
-            <label for="preferred_foot" class="createTaskPage_input_frame_preferred_foot_text">Preferred foot:</label>
-            <input type="text" id="preferred_foot" name="preferred_foot"
-                   class="createTaskPage_input_frame_preferred_foot_input"><br><br>
-        </div>
-
-        <div class="createTaskPage_input_frame_salary">
-            <label for="salary" class="createTaskPage_input_frame_salary_text">Salary:</label>
-            <input type="text" id="salary_min" name="salary" class="createTaskPage_input_frame_salary_input_min"><br><br>
-            <input type="text" id="salary_max" name="salary" class="createTaskPage_input_frame_salary_input_max"><br><br>
-        </div>
-        <div class="createTaskPage_input_frame_transfer_price">
-            <label for="transfer_price" class="createTaskPage_input_frame_transfer_price_text">Transfer price:</label>
-            <input type="text" id="transfer_price" name="transfer_price"
-                   class="createTaskPage_input_frame_transfer_price_input_min"><br><br>
-            <input type="text" id="transfer_price" name="transfer_price"
-                   class="createTaskPage_input_frame_transfer_price_input_max"><br><br>
-        </div>
-        -->
     </form>
 
-
-    <div id="frames"></div>
-    <div class="createTaskPage_canvas_tab2">
-        <div class="createTaskPage_canvas_tab2_title">Footballer List</div>
-        <script>
-            <% if (footballers) { %>
-            let ht = '';
-            <% for(let i = 0; i < footballers.length; i++){ %>
-            ht += '\
-                <div class="createTaskPage_canvas_tab2_agency_frame_1">\
-                    <img src= "<%=footballers[i].image%>" class="createTaskPage_canvas_tab2_agency_frame_1_image">\
-                    <div class="createTaskPage_canvas_tab2_agency_frame_1_name">Name: <%=footballers[i].forename%> <%= footballers[i].surname %></div>\
-                <div class="createTaskPage_canvas_tab2_agency_frame_1_price">Nationality:<%= footballers[i].nationality %></div>\
-                <div class="weight">Height: \t<%= footballers[i].height %></div>\
-                <div class="age">Age: \t<%= footballers[i].age %></div>\
-                <div class="position">Position: \t<%= footballers[i].position %></div>\
-                <div class="foot">Foot: \t<%= footballers[i].foot %></div>\
-                <div class="club">Club: \t<%= footballers[i].club_name %></div>\
-                \<div class="fee">Transfer Fee: \t<%= footballers[i].transfer_price%></div>\
-                <button class="createTaskPage_canvas_tab2_agency_frame_1_assign_task_button">Add to Report</button>\
-                </div> ' ; <% } %>
-            document.getElementById("frames").innerHTML = ht;
-
-            <% } %>
-        </script>
-
-        <!--
-        <div class="createTaskPage_footer_links">
-            <a href="#" class="createTaskPage_footer_link">1</a>
-            <a href="#" class="createTaskPage_footer_link">2</a>
-            <a href="#" class="createTaskPage_footer_link">3</a>
-            <a href="#" class="createTaskPage_footer_link">4</a>
-            <a href="#" class="createTaskPage_footer_link">Next Page</a>
+        <div class="createTaskPage_canvas_tab2">
+            <div class="createTaskPage_canvas_tab2_title">Footballer List</div>
         </div>
-      -->
-    </div>
+        <form method="post">
+            <div id="frames"></div>
+
+            <script>
+                <% if (footballers.length > 0){%>
+                let ht = '';
+                <% for(let i = 0; i < footballers.length; i++){ %>
+                ht += '\
+                    <div class="createTaskPage_canvas_tab2_agency_frame_1">\
+                        <img src= "<%=footballers[i].image%>" class="createTaskPage_canvas_tab2_agency_frame_1_image">\
+                        <div class="createTaskPage_canvas_tab2_agency_frame_1_name">Name: <%=footballers[i].forename%> <%= footballers[i].surname %></div>\
+                        <div class="createTaskPage_canvas_tab2_agency_frame_1_price">Nationality:<%= footballers[i].nationality %></div>\
+                        <div class="weight">Height: \t<%= footballers[i].height %></div>\
+                        <div class="age">Age: \t<%= footballers[i].age %></div>\
+                        <div class="position">Position: \t<%= footballers[i].position %></div>\
+                        <div class="foot">Foot: \t<%= footballers[i].foot %></div>\
+                        <div class="club">Club: \t<%= footballers[i].club_name %></div>\
+                        <div class="fee">Transfer Fee: \t<%= footballers[i].transfer_price%></div>\
+                        <button type="button" class = "createTaskPage_canvas_tab2_agency_frame_1_assign_task_button" id= <%= footballers[i].player_id%> onclick="myFunction(this.id)">Add To Report</button>\
+                    </div>';
+                <% } %>
+                    <% }%>
+                document.getElementById("frames").innerHTML = ht;
+
+                function myFunction(player_id){
+                    let xhttp = new XMLHttpRequest();
+                    xhttp.open("POST", "/footballer", true);
+                    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    xhttp.send("id=" + player_id);
+                    alert("Footballer added to the current task report if you have any.");
+                }
+
+            </script>
+            <!--
+            <div class="createTaskPage_footer_links">
+                <a href="#" class="createTaskPage_footer_link">1</a>
+                <a href="#" class="createTaskPage_footer_link">2</a>
+                <a href="#" class="createTaskPage_footer_link">3</a>
+                <a href="#" class="createTaskPage_footer_link">4</a>
+                <a href="#" class="createTaskPage_footer_link">Next Page</a>
+            </div>
+
+</form>          -->
+    </form>
 </div>
+
 <!-- <footer>
   <div class="mainpage_footer">
     <div class="mainpage_footer_text">CS353 GroupX c</div>

@@ -10,7 +10,9 @@ const sessions = require('express-session');
 const loginRouter = require('./routes/login');
 const signupRouter = require('./routes/signup');
 const footballerRouter = require('./routes/footballer');
-
+const tasks = require('./routes/tasks')
+const reportRouter = require('./routes/report');
+const bodyParser = require('body-parser');
 const app = express();
 
 // view engine setup
@@ -20,6 +22,18 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
+
+// support parsing of application/json type post data
+app.use(bodyParser.json());
+
+//support parsing of application/x-www-form-urlencoded post data
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// create application/x-www-form-urlencoded parser
+//app.use( bodyParser.urlencoded({ extended: false }));
+//app.use(bodyParser.json());
+//app.use(bodyParser.text({ type: "text/plain", extended:true}));
+//app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -36,6 +50,8 @@ app.use('/signup', signupRouter);
 app.use('/tasks', tasksRouter);
 app.use('/offers', offersRouter);
 app.use('/footballer', footballerRouter);
+app.use('/tasks', tasks);
+app.use('/report', reportRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

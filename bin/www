@@ -37,6 +37,18 @@ email	varchar(50) not null, \
 price_per_scout	int);"
 );
 
+// scout
+db.query(
+"CREATE TABLE IF NOT EXISTS scout( \
+scout_id int AUTO_INCREMENT PRIMARY KEY REFERENCES user(user_id), \
+agency_id int REFERENCES scout_agency(agency_id), \
+scout_name VARCHAR(25), \
+scout_surname VARCHAR(25), \
+is_available ENUM('true', 'false'))");
+
+
+
+
 // editor
 db.query(
 "CREATE TABLE IF NOT EXISTS editor( \
@@ -55,15 +67,6 @@ email	varchar(50) not null, \
 agent_name varchar(80));"
 );
 
-//scout
-db.query(
-"CREATE TABLE IF NOT EXISTS agent( \
-scout_id int AUTO_INCREMENT PRIMARY KEY REFERENCES user (user_id), \
-password VARCHAR(25), \
-email	varchar(50) not null, \
-scout_name varchar(80), scout_surname varchar(25), \
-is_available ENUM('true', 'false'))"
-);
 
 // standard
 db.query( "CREATE TABLE IF NOT EXISTS standard( \
@@ -77,12 +80,12 @@ db.query("CREATE TABLE IF NOT EXISTS task(id int AUTO_INCREMENT, \
 transfer_price int, salary int, foot VARCHAR(5), age smallint, weight smallint, height smallint, \
 position VARCHAR(10), time smallint, \
 scout_num smallint NOT NULL, assigned_date DATE NOT NULL, \
-status ENUM('completed', 'uncompleted'), \
-PRIMARY KEY(id), FOREIGN KEY(agency_id) REFERENCES agency(id))");
+status ENUM('completed', 'uncompleted'), agency_id int REFERENCES agency(agency_id), \
+PRIMARY KEY(id))");
 
-//footballer table
+//footballer table(REMOVE CLUB NAME RATHER CLUB ID)
 db.query("CREATE TABLE IF NOT EXISTS footballer(player_id int AUTO_INCREMENT, agent_id int REFERENCES agent(agent_id), \
-forename VARCHAR(25) NOT NULL, surname VARCHAR(25) NOT NULL, \
+forename VARCHAR(25) NOT NULL, surname VARCHAR(25) NOT NULL, gender ENUM('woman', 'man'), \
 position VARCHAR(10) NOT NULL,\
 height smallint, weight smallint, birth_date DATE, foot ENUM('left', 'right'), salary int, transfer_price int,\
 nationality VARCHAR(25), image_id int REFERENCES image(id), club_name VARCHAR(50) REFERENCES club, PRIMARY KEY(player_id))");
@@ -94,7 +97,7 @@ db.query("CREATE TABLE IF NOT EXISTS images(id int AUTO_INCREMENT, image VARCHAR
 
 //report table
 db.query("CREATE TABLE IF NOT EXISTS final_report(report_id int AUTO_INCREMENT, player_id int REFERENCES footballer(player_id), \
-club_id int REFERENCES club(club_id), scout_id int REFERENCES scout(scout_id), rating int(1), comment VARCHAR(1000), PRIMARY KEY(report_id))");
+scout_id int REFERENCES scout(scout_id), rating int(1), task_id int REFERENCES task(id), comment VARCHAR(1000), PRIMARY KEY(report_id))");
 
 
 //statistics table
