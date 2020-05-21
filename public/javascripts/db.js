@@ -7,7 +7,7 @@ const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     //password: 'naruto1212',
-    database: 'scouting_db'
+    database: 'scouting'
 });
 
 /*
@@ -21,7 +21,7 @@ db.connect((err) => {
 });
 
 
-let sql = 'CREATE DATABASE IF NOT EXISTS scouting_db';
+let sql = 'CREATE DATABASE IF NOT EXISTS scouting';
 db.query(sql, (err, result) => {
     if(err)
     throw err;
