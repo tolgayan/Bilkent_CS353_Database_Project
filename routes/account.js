@@ -162,42 +162,6 @@ router.post("/:userId([0-9]+)/see_scouts", function (req, res) {
   });
 });
 
-router.get("/:userId([0-9]+)/see_tasks/", function (req, res, next) {
-  if (!req.session.user) res.redirect("http://localhost:4000");
-  if (req.session.user != req.params["userId"])
-    res.redirect("http://localhost:4000");
-
-  let sql = "SELECT * FROM user WHERE user_id = " + req.params["userId"];
-
-  db.query(sql, function (err, result, fields) {
-    let sql;
-    if (result[0].usertype == "scout_agency")
-      sql =
-        "SELECT * FROM scout_agency \
-      INNER JOIN task on task.agency_id=scout_agency.user_id \
-      WHERE scout_agency.user_id = " +
-        req.params["userId"];
-    else if (result[0].usertype == "scout")
-      sql =
-        "SELECT * FROM scout \
-      INNER JOIN task on task.id=scout.task_id \
-      WHERE scout.user_id = " +
-        req.params["userId"];
-
-    db.query(sql, function (err, result, fields) {
-      if (err) throw err;
-      let all_tasks;
-
-      if (result != undefined) {
-        all_tasks = result;
-      } else {
-        all_tasks = [];
-      }
-
-      res.render("see_tasks", { all_tasks: all_tasks });
-    });
-  });
-});
 
 router.post("/:userId([0-9]+)/add_scout", function (req, res, next) {
   if (!req.session.user) res.redirect("http://localhost:4000");
