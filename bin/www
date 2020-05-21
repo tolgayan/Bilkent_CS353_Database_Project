@@ -164,7 +164,7 @@ function create_tables() {
       date date DEFAULT CURRENT_TIMESTAMP, \
       title	varchar(255), \
       content TEXT, \
-      category varchar(15), \
+      category varchar(255), \
       image_id char(10), \
       primary key (news_id), \
       foreign key (editor_id) references editor (user_id) \

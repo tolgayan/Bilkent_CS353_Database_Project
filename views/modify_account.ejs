@@ -1,0 +1,24 @@
+<html>
+  <head> </head>
+
+  <body>
+    <form action="/account/<%=userData.user_id%>/modify" method="POST">
+      <% Object.keys(userData).forEach(function(key) { %> 
+      <% if (key != "user_id" && key != "usertype"){%>  
+      <% var inputtype = "text"%> 
+      <% if (typeof userData[key] == "number") {inputtype = "number"}%> 
+      <%=key%>:</br> <input type="text" name="<%=key%>" value="<%=userData[key]%>" /><br />
+      <% }}) %>
+      <input type="hidden" name="formtype" value="modify" />
+      <input type="hidden" name="usertype" value="<%=userData["usertype"]%>" />
+      <input type="submit" value="Save" />
+    </form>
+</br>
+    <form action="/account/<%=userData.user_id%>/modify" method="POST">
+        <input type="submit" value = "Delete Account">
+        <input type="hidden" name="usertype" value="<%=userData["usertype"]%>" />
+        <input type="hidden" name="user_id" value="<%=userData["user_id"]%>" />
+        <input type="hidden" name="formtype" value="delete" />
+      </form>
+  </body>
+</html>

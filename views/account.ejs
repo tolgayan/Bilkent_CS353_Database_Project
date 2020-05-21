@@ -1,4 +1,6 @@
 <html>
+  <base href="/account/" />
+
   <head>
     <title>Express</title>
   </head>
@@ -13,7 +15,7 @@
       </li>
       <li>
         email: <%=userData.email %>
-      </li>      
+      </li>
       <li>
         country: <%=userData.country %>
       </li>
@@ -32,10 +34,8 @@
       <li>
         email: <%=userData.email %>
       </li>
-      <li>
-        <p>TODO add footballer</p>
-      </li>
     </ul>
+    <a href="<%=userData.use_id%>/add_footballer"><button>Add Footballer</button></a>
     <% } else if(userData.usertype == "scout_agency") {%>
     <ul>
       <li>
@@ -49,6 +49,39 @@
       </li>
       <li>
         price per scout: <%=userData.price_per_scout %>
+      </li>
+    </ul>
+    <a href="todo"><button>See Tasks</button></a>
+    <% } else if(userData.usertype == "scout") {%>
+    <ul>
+      <li>
+        user id: <%=userData.user_id %>
+      </li>
+      <li>
+        scout name: <%=userData.scout_name %>
+      </li>
+      <li>
+        is available: <%=userData.is_available %>
+      </li>
+      <li>
+        current task id: <%=userData.task_id %>
+      </li>
+      <li>
+        email: <%=userData.email %>
+      </li>
+    </ul>
+    <a href="tasks"><button>See Tasks</button></a>
+    <a href="search footballer"><button>Search footballer</button></a>
+    <% } else if(userData.usertype == "editor") {%>
+    <ul>
+      <li>
+        user id: <%=userData.user_id %>
+      </li>
+      <li>
+        name: <%=userData.scout_name %>
+      </li>
+      <li>
+        email: <%=userData.email %>
       </li>
     </ul>
     <% } else if(userData.usertype == "standard") {%>
@@ -72,7 +105,9 @@
         email: <%=userData.email %>
       </li>
     </ul>
-    <% }} else{ %>
+    <% } %> 
+    <a href="<%=userData.user_id %>/modify"><button>Edit Info</button></a>
+    <%} else{ %>
 
     <p>No Data Found</p>
 
