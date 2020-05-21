@@ -29,6 +29,13 @@ router.get("/", function (req, res, next) {
   }
 });
 
+router.post("/", function (req, res, next) {
+  if (req.body.buttontype == "logout"){
+    req.session.destroy();
+    res.redirect("http://localhost:4000/");
+  }  
+});
+
 router.get("/:userId([0-9]+)/modify", function (req, res, next) {
   if (!req.session.user) res.redirect("http://localhost:4000");
 

@@ -109,6 +109,10 @@
     </ul>
     <% } %> 
     <a href="http://localhost:4000/account/<%=userData.user_id %>/modify"><button>Edit Info</button></a>
+    <form action="http://localhost:4000/account/" method="POST">
+      <input type="hidden" name="buttontype" value="logout">
+      <input type="submit" name="logout" value="logout">
+    </form>
     <%} else{ %>
 
     <p>No Data Found</p>
