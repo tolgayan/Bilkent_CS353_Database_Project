@@ -404,6 +404,7 @@
     height: 1344px;
     left: 150px;
     top: 946px;
+    z-index: -1;
   }
 
   .post1 {
@@ -671,6 +672,7 @@
 
     color: #FFFFFF;
   }
+
 </style>
 
 <head>
@@ -718,34 +720,29 @@
   <div class="mainpage_body_news_content">
     <div class="mainpage_body_latest_news_title">Latest Transfer News</div>
     <div class="dropdown">
-      <button class="dropbtn">Select Category
-        <svg height="21" width="25">
-          <polygon points="3,6 23,6 13,21" style="fill:rgb(0, 0, 0);stroke:purple;stroke-width:1" />
-          Sorry, your browser does not support inline SVG.
-        </svg>
-      </button>
-      <div class="dropdown-content">
-        <a href="#">All News</a>
-        <a href="#">Followed Topics</a>
-        <a href="#">...</a>
-      </div>
+      <a href="http://localhost:4000/news/"><div class="dropbtn" style="z-index:-123; position: relative; text-align: center;">See all news
+        
+      </div></a>  
+      
     </div>
     <div class="mainpage_body_latest_news_title_line"></div>
   </div>
   <div id="news_list_view" class="mainpage_body_news_list_view">
-    <% for(let i = 0; i < news.length;i++){ %>
-    <div class="post1">
-      <img src="../public/images/default_image.jpg" alt="Default Image" class="mainpage_body_news_post1_img">
-      <div class="mainpage_body_news_post1_title"><%=news[i].title%></div>
+        
+    <% for(var i = 0; i < news.length;i++){ %>
+    <div class="post<%=i+1%>">
+      <img src="../public/images/default_image.jpg" alt="Default Image" class="mainpage_body_news_post<%=i+1%>_img">
+      <div class="mainpage_body_news_post<%=i+1%>_title"><%=news[i].title%></div>
       <% if (news[i].content.length < 80) {%>
-      <div class="mainpage_body_news_post1_description"><%=news[i].content%></div>
+      <div class="mainpage_body_news_post<%=i+1%>_description"><%=news[i].content%></div>
       <%}%>
       <% if (news[i].content.length >= 80) {%>
-      <div class="mainpage_body_news_post1_description"><%=news[i].content.substring(0, 79)%></div>
+      <div class="mainpage_body_news_post<%=i+1%>_description"><%=news[i].content.substring(0, 79)%></div>
       <%}%>
-      <a href="http://localhost:4000/news/<%=news[i].news_id%>/" class="mainpage_body_news_post1_readmore_link">Read more..</a>
+      <a href="http://localhost:4000/news/<%=news[i].news_id%>/" class="mainpage_body_news_post<%=i+1%>_readmore_link">Read more..</a>
     </div>
-    <%}%>     
+    <%}%>  
+    
 </body>
 
 </html>

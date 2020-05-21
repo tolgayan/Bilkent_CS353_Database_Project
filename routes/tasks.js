@@ -7,7 +7,7 @@ db.query("CREATE VIEW IF NOT EXISTS completed_reports AS \
          footballer.position, footballer.nationality, footballer.club_name FROM \
          images, footballer, final_report, scout WHERE final_report.report_id IN \
          (SELECT report_id FROM assignment, final_report WHERE assignment.status='complete' AND \
-         final_report.user_id=assignment.user_id AND final_report.task_id=assignment.task_id AND scout.user_id=assignment.user_id) AND \
+         final_report.scout_id=assignment.scout_id AND final_report.task_id=assignment.task_id AND scout.user_id=assignment.scout_id) AND \
          footballer.image_id=images.id AND footballer.player_id = final_report.player_id", (err, result) => {
     if (err) {
         throw err;
