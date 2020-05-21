@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 function cl(res, callback) {
-    db.query("SELECT * FROM user", (err, result) => {
+    db.query("SELECT * FROM task, assignment WHERE task.id=assignment.task_id AND scout_id=1 ORDER BY assigned_date", (err, result) => {
         if (err) {
             throw err;
             console.log("error");
