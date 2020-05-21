@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
         res.send("User already logged in");
         res.redirect('../');
     }
-        
+
 });
 
 router.post('/', function (req, resp){

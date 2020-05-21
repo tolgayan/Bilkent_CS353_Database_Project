@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+<style>
+    .container{
+        position: absolute;
+        width: 950px;
+        height: 1891px;
+        left: 280px;
+    //top: -1px;
+        top: 240px;
+
+        background: rgba(229, 229, 229, 0.8);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 12px;
+    }
+    .rating_text{
+        position: absolute;
+        width: 70px;
+        height: 27px;
+        left: 85px;
+        top: 5px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 60px;
+        border: white;
+        background: white;
+        /* identical to box height */
+
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .header{
+        position: absolute;
+        width: 500px;
+        height: 60px;
+        left: 520px;
+        top: 160px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 60px;
+        /* identical to box height */
+
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .report_container{
+        position: relative;
+        width: 600px;
+        height: 560px;
+        left: 180px;
+        top: 91px;
+
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 12px;
+    }
+
+    .picture{
+        position: absolute;
+        width: 91px;
+        height: 91px;
+        left: 27px;
+        top: 33px;
+
+    //background: url(default-profile.png);
+        border: 1px solid #AAAAAA;
+        box-sizing: border-box;
+    }
+
+    .text_area{
+        position: absolute;
+        width: 403px;
+        height: 231px;
+        left: 130px;
+        top: 250px;
+
+        background: rgba(224, 202, 0, 0.2);
+        border: 2px solid #EDEEB7;
+        box-sizing: border-box;
+        border-radius: 2px;
+        column-count: 100;
+        overflow: hidden;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 25px;
+
+
+        color: #000000;
+
+    }
+    .name{
+        position: absolute;
+        width: 417px;
+        height: 33px;
+        left: 133px;
+        top: 33px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .position{
+        position: absolute;
+        width: 417px;
+        height: 33px;
+        left: 133px;
+        top: 76px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .nationality{
+        position: absolute;
+        width: 417px;
+        height: 33px;
+        left: 133px;
+        top: 119px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+
+    }
+
+    .club{
+        position: absolute;
+        width: 417px;
+        height: 33px;
+        left: 133px;
+        top: 162px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .comment{
+        position: absolute;
+        width: 426px;
+        height: 51px;
+        left: 133px;
+        top: 195px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .rating{
+        position: absolute;
+        width: 73px;
+        height: 28px;
+        left: 15px;
+        top: 5px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        /* identical to box height */
+
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+
+    }
+
+    .rating_container{
+        position: absolute;
+        width: 165px;
+        height: 41px;
+        left: 381px;
+        top: 29px;
+
+        background: #FFFFFF;
+        border: 1px solid #000000;
+        box-sizing: border-box;
+        border-radius: 22px;
+    }
+
+    .edit_button{
+        position: absolute;
+        width: 150px;
+        height: 43px;
+        left: 270px;
+        top: 495px;
+
+        background: #E0CA00;
+        border-radius: 32px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 25px;
+        /* identical to box height */
+
+        display: flex;
+        align-items: center;
+        text-align: center;
+        padding-left: 12px;
+
+        font-color: #2F303E;
+    }
+
+    .remove_button{
+        position: absolute;
+        width: 150px;
+        height: 43px;
+        left: 434px;
+        top: 495px;
+        padding-left: 33px;
+
+        background: #FF7527;
+        border-radius: 32px;
+
+    //copy paste
+    font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 25px;
+        /* identical to box height */
+
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        color: #2F303E;
+    }
+
+    .edit_text{
+        position: absolute;
+        width: 137.29px;
+        height: 24.45px;
+        left: 317.36px;
+        top: 497.27px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 25px;
+        /* identical to box height */
+
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        color: #2F303E;
+    }
+
+    .remove_text{
+        position: absolute;
+        width: 137.29px;
+        height: 24.45px;
+        left: 481.36px;
+        top: 497.27px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 25px;
+        /* identical to box height */
+
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        color: #2F303E;
+    }
+
+    .mainpage_title {
+        position: absolute;
+        left: 36.04%;
+        right: 36.04%;
+        top: 12.04%;
+        bottom: 38.89%;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 60px;
+        text-align: center;
+
+        color: #000000;
+    }
+
+    .mainpage_header_bg1 {
+        position: absolute;
+        left: 0%;
+        right: 0%;
+        top: 0%;
+        bottom: 27.84%;
+
+        background: #E0CA00;
+    }
+
+    .mainpage_header_bg2 {
+        position: absolute;
+        left: 0%;
+        right: 0%;
+        top: 72.22%;
+        bottom: 0%;
+
+        background: #060606;
+    }
+
+    .mainpage_header_home {
+        position: absolute;
+        left: 39.58%;
+        right: 53.47%;
+        top: 75%;
+        bottom: 2.78%;
+
+        font-family: Gabriela;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 23px;
+        text-align: center;
+
+        color: #FFFFFF;
+    }
+
+    .mainpage_header_about {
+        position: absolute;
+        left: 46.53%;
+        right: 46.53%;
+        top: 75%;
+        bottom: 2.78%;
+
+        font-family: Gabriela;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 23px;
+        text-align: center;
+
+        color: #FFFFFF;
+    }
+
+    .mainpage_header_contact {
+        position: absolute;
+        left: 53.47%;
+        right: 39.58%;
+        top: 75%;
+        bottom: 2.78%;
+
+        font-family: Gabriela;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 23px;
+        text-align: center;
+
+        color: #FFFFFF;
+    }
+
+    .mainpage_header_userpanel {
+        position: absolute;
+        left: 82.99%;
+        right: 2.78%;
+        top: 75%;
+        bottom: 8.33%;
+
+        font-family: Gabriela;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 23px;
+        text-align: center;
+
+        color: #FFFFFF;
+    }
+
+    .mainpage_footer {
+        position: absolute;
+        width: 100%;
+        height: 61px;
+        left: 0px;
+        bottom: 0px;
+        background: #000000;
+    }
+
+    .mainpage_footer_text {
+        position: absolute;
+        width: 100%;
+        height: 34px;
+        left: 598px;
+        bottom: 0px;
+
+        font-family: Esteban;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 23px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        color: #FFFFFF;
+    }
+
+</style>
+
+
+
+<head>
+    <title> TRANSFERMAP </title>
+    <div class="mainpage_head">
+        <div class="mainpage_header_bg1"></div>
+        <div class="mainpage_header_bg2"></div>
+        <a href="taskoffer.ejs" class="mainpage_title">TRANSFERMAP</a>
+        <a href="taskoffer.ejs" class="mainpage_header_home">Home</a>
+        <a href="taskoffer.ejs" class="mainpage_header_about">About</a>
+        <a href="taskoffer.ejs" class="mainpage_header_contact">Contact</a>
+        <div class="mainpage_header_userpanel">Exclusive User Panel</div>
+    </div>
+    <link href="/stylesheets/task.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="header">Task Reports</div>
+<div class="container">
+        <div id="frame"></div>
+        <script>
+            <% if (reports.length > 0){%>
+            let ht = '';
+            <% for(let i = 0; i < reports.length; i++){ %>
+            ht += '\
+        <div class="report_container">\
+            <image src= "<%=reports[i].image%>" class="picture"></image>\
+            <div class="name">Name: <%=reports[i].forename%></div>\
+            <div class="position">Position: <%=reports[i].position %></div>\
+            <div class="nationality">Nationality: <%= reports[i].nationality %></div>\
+            <div class="club">Club: <%=reports[i].club_name %></div>\
+            <div class="comment">Comment: </div>\
+            <textarea disabled class="text_area"><%=reports[i].comment%> </textarea>\
+            <div class="rating_container">\
+                <div class="rating">Rating: </div>\
+                <input type="text" disabled value= <%=reports[i].rating%> class="rating_text">\
+            </div>\
+        </div>';
+            <% } %>
+            <% }%>
+            document.getElementById("frame").innerHTML = ht;
+        </script>
+</div>
+
+<!--
+<footer>
+    <div class="mainpage_footer">
+        <div class="mainpage_footer_text">CS353 GroupX c</div>
+    </div>
+
+</footer>
+-->
+</body>
+
+</html>

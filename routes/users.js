@@ -1,9 +1,28 @@
 const express = require('express');
 const router = express.Router();
+const db = require("../public/javascripts/db");
 
-/* GET users listing. */
+/* GET home page. */
+let users;
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  cl(res, func);
 });
+
+function cl(res, callback) {
+  db.query("SELECT * FROM user", (err, result) => {
+    if (err) {
+      throw err;
+      console.log("error");
+    }
+    users = result;
+    console.log(users);
+    callback(res);
+  });
+}
+
+function func(res){
+  console.log(users);
+  res.render('../views/taskoffer', { result: users });
+}
 
 module.exports = router;
