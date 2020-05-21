@@ -1,45 +1,516 @@
 <!DOCTYPE html>
 <html>
 
+<style>
+    .mainpage_head {
+        position: absolute;
+        width: 100%;
+        height: 108px;
+        left: 0px;
+        top: 33px;
+    }
+
+    .mainpage_title {
+        position: absolute;
+        left: 36.04%;
+        right: 36.04%;
+        top: 12.04%;
+        bottom: 38.89%;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 60px;
+        text-align: center;
+
+        color: #000000;
+    }
+
+    .mainpage_header_bg1 {
+        position: absolute;
+        left: 0%;
+        right: 0%;
+        top: 0%;
+        bottom: 27.84%;
+
+        background: #E0CA00;
+    }
+
+    .mainpage_header_bg2 {
+        position: absolute;
+        left: 0%;
+        right: 0%;
+        top: 72.22%;
+        bottom: 0%;
+
+        background: #060606;
+    }
+
+    .mainpage_header_home {
+        position: absolute;
+        left: 39.58%;
+        right: 53.47%;
+        top: 75%;
+        bottom: 2.78%;
+
+        font-family: Gabriela;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 23px;
+        text-align: center;
+
+        color: #FFFFFF;
+    }
+
+    .accept_button{
+        position: absolute;
+        width: 151px;
+        height: 31.46px;
+        left: 650px;
+        top: 295px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        background: #E0CA00;
+        border-radius: 32px;
+
+    }
+
+    .mainpage_header_about {
+        position: absolute;
+        left: 46.53%;
+        right: 46.53%;
+        top: 75%;
+        bottom: 2.78%;
+
+        font-family: Gabriela;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 23px;
+        text-align: center;
+
+        color: #FFFFFF;
+    }
+
+    .mainpage_header_contact {
+        position: absolute;
+        left: 53.47%;
+        right: 39.58%;
+        top: 75%;
+        bottom: 2.78%;
+
+        font-family: Gabriela;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 23px;
+        text-align: center;
+
+        color: #FFFFFF;
+    }
+
+    .mainpage_header_userpanel {
+        position: absolute;
+        left: 82.99%;
+        right: 2.78%;
+        top: 75%;
+        bottom: 8.33%;
+
+        font-family: Gabriela;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 23px;
+        text-align: center;
+
+        color: #FFFFFF;
+    }
+
+    .mainpage_footer {
+        position: absolute;
+        width: 100%;
+        height: 61px;
+        left: 0px;
+        bottom: 0px;
+        background: #000000;
+    }
+
+    .mainpage_footer_text {
+        position: absolute;
+        width: 100%;
+        height: 34px;
+        left: 598px;
+        bottom: 0px;
+
+        font-family: Esteban;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 23px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        color: #FFFFFF;
+    }
+
+    .previousTasksPage_container {
+        position: relative;
+        width: 1140px;
+        height: 2129px;
+        top: 188px;
+        left: 150px;
+    }
+
+    .previousTasksPage_container_title {
+        position: absolute;
+        width: 441px;
+        height: 82px;
+        left: 500px;
+        top: 39px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 36px;
+        line-height: 45px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        color: #000000;
+    }
+
+    .previousTasksPage_container_title_underline {
+        position: absolute;
+        width: 1140px;
+        height: 0px;
+        left: 0px;
+        top: 108px;
+
+        border: 1px solid #000000;
+        background-color: black;
+    }
+
+    .previousTasksPage_tasks_container {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+    }
+
+    .previousTasksPage_tasks_container_task1 {
+        position: relative;
+        width: 1140px;
+        height: 358px;
+        left: 0px;
+        top: 175px;
+        margin: 30px;
+
+        background: #F7F7F7;
+        border-radius: 27px;
+    }
+
+    .previousTasksPage_tasks_container_task2 {
+        position: absolute;
+        width: 1140px;
+        height: 358px;
+        left: 0px;
+        top: 625px;
+
+        background: #F7F7F7;
+        border-radius: 27px;
+    }
+
+    .previousTasksPage_tasks_container_task3 {
+        position: absolute;
+        width: 1140px;
+        height: 358px;
+        left: 0px;
+        top: 1075px;
+
+        background: #F7F7F7;
+        border-radius: 27px;
+    }
+
+    .previousTasksPage_tasks_container_task4 {
+        position: absolute;
+        width: 1140px;
+        height: 358px;
+        left: 0px;
+        top: 1525px;
+
+        background: #F7F7F7;
+        border-radius: 27px;
+    }
+
+    .previousTasksPage_tasks_container_task_title {
+        position: absolute;
+        width: 265px;
+        height: 47.96px;
+        left: 55px;
+        top: 18.84px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 22px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .previousTasksPage_tasks_container_task_title_underline {
+        position: absolute;
+        width: 1082px;
+        height: 0.5px;
+        left: 29px;
+        top: 58.42px;
+        background-color: black;
+    }
+
+    .previousTasksPage_tasks_container_task_status_frame {
+        position: absolute;
+        width: 203px;
+        height: 17px;
+        left: 908px;
+        top: 35px;
+
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 19px;
+    }
+
+    .previousTasksPage_tasks_container_task_status_text {
+        position: absolute;
+        width: 149px;
+        height: 10px;
+        left: 25px;
+        top: 5px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 15px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        color: #000000;
+    }
+
+    .previousTasksPage_tasks_container_task_details {
+        position: absolute;
+        width: 601px;
+        height: 255.21px;
+        left: 55px;
+        top: -35px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 17px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .task_detail_height {
+        position: absolute;
+        left: -5px;
+        top: 115px;
+        margin: 0;
+    }
+
+    .task_detail_weight {
+        position: absolute;
+        left: -5px;
+        top: 135px;
+        margin: 0;
+    }
+
+    .task_detail_age {
+        position: absolute;
+        left: -5px;
+        top: 155px;
+        margin: 0;
+    }
+
+    .task_detail_position {
+        position: absolute;
+        left: -5px;
+        top: 175px;
+        margin: 0;
+    }
+
+    .task_detail_time {
+        position: absolute;
+        left: -5px;
+        top: 195px;
+        margin: 0;
+    }
+
+    .task_detail_scout_number {
+        position: absolute;
+        left: -5px;
+        top: 215px;
+        margin: 0;
+    }
+
+    .task_detail_preferred_foot {
+        position: absolute;
+        left: -5px;
+        top: 235px;
+        margin: 0;
+    }
+
+    .task_detail_salary {
+        position: absolute;
+        left: -5px;
+        top: 255px;
+        margin: 0;
+    }
+
+    .task_detail_transfer_price {
+        position: absolute;
+        left: -5px;
+        top: 275px;
+        margin: 0;
+    }
+
+    .task_detail_show_report_button {
+        position: absolute;
+        width: 151px;
+        height: 31.46px;
+        left: 919px;
+        top: 295px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        background: #E0CA00;
+        border-radius: 32px;
+    }
+
+    .task_detail_show_report_button {
+        position: absolute;
+        width: 151px;
+        height: 31.46px;
+        left: 850px;
+        top: 295px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        background: #E0CA00;
+        border-radius: 32px;
+    }
+
+
+
+    .task_detail_choose_another_agency {
+        position: absolute;
+        width: 257px;
+        height: 31.46px;
+        left: 630px;
+        top: 295px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        background: rgb(187, 185, 169);
+        border-radius: 32px;
+        pointer-events: none;
+    }
+
+    .task_task_detail_agency_response {
+        position: absolute;
+        width: 229px;
+        height: 19px;
+        left: 900px;
+        top: 330px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 12px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        color: #e01e1e;
+
+    }
+</style>
+
 <head>
     <title> TRANSFERMAP </title>
     <div class="mainpage_head">
         <div class="mainpage_header_bg1"></div>
         <div class="mainpage_header_bg2"></div>
-        <a href="taskoffer.ejs" class="mainpage_title">TRANSFERMAP</a>
-        <a href="taskoffer.ejs" class="mainpage_header_home">Home</a>
-        <a href="taskoffer.ejs" class="mainpage_header_about">About</a>
-        <a href="taskoffer.ejs" class="mainpage_header_contact">Contact</a>
+        <a href="mainpage.html" class="mainpage_title">TRANSFERMAP</a>
+        <a href="mainpage.html" class="mainpage_header_home">Home</a>
+        <a href="mainpage.html" class="mainpage_header_about">About</a>
+        <a href="mainpage.html" class="mainpage_header_contact">Contact</a>
         <div class="mainpage_header_userpanel">Exclusive User Panel</div>
     </div>
-    <link href="/stylesheets/task.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-<div class="page_header">Task Offers</div>
 
 
-<div class ="offers">
-    <div id="off"></div>
-</div>
-
-<script>
-<% if (result) { %>
-let ht = '';
-<% for(let i = 0; i < result.length; i++){ %>
-    ht +=
-      `<div class="offer_content">
-      <div class="offer_header">Offerer Club:<%= result[i].username %></div>
-      <div class="offer_body"> <%= result[i].id %></div>
-      </div>`; <% } %>
-    document.getElementById("off").innerHTML = ht;
-    <% } %>
-</script>
-
-<footer>
-    <div class="mainpage_footer">
-        <div class="mainpage_footer_text">CS353 GroupX c</div>
+<div class="previousTasksPage_container">
+    <div class="previousTasksPage_container_title">
+        Tasks Assigned
     </div>
-</footer>
+    <div class="previousTasksPage_container_title_underline"></div>
+    <div class="previousTasksPage_tasks_container">
+        <form action="offers" method="post">
+            <div id="frames"></div>
+            <script>
+                <% if (result.length > 0){%>
+                let ht = '';
+                <% for(let i = 0; i < result.length; i++){ %>
+                ht += '\
+            <div class="previousTasksPage_tasks_container_task1">\
+                <div class="previousTasksPage_tasks_container_task_title">Club: <%= result[i].club_name %></div>\
+                <div class="previousTasksPage_tasks_container_task_title_underline"></div>\
+                <div class="previousTasksPage_tasks_container_task_status_frame">\
+                    <div class="previousTasksPage_tasks_container_task_status_text">\
+                        Status: <%= result[i].status %>\
+                    </div>\
+                </div>\
+                <div class="previousTasksPage_tasks_container_task_details">\
+                    <p class="task_detail_height">Height: <%= result[i].height %></p>\
+                    <p class="task_detail_weight">Weight:  <%= result[i].weight %></p>\
+                    <p class="task_detail_age">Age: <%= result[i].age %></p>\
+                    <p class="task_detail_position">Position: <%= result[i].position %></p>\
+                    <p class="task_detail_time">Time: <%= result[i].time %></p>\
+                    <p class="task_detail_preferred_foot">Preferred foot: <%= result[i].foot %></p>\
+                    <p class="task_detail_salary">Salary: <%= result[i].salary %></p>\
+                    <p class="task_detail_transfer_price">Transfer Price: <%= result[i].transfer_price %></p>\
+                </div>\
+                <input type="hidden" value= <%= result[i].id %> name="task_id">';
+
+                <% if (result[i].status == 'accepted'){%>
+                    ht = ht + '\
+                    <input type="submit" class="task_detail_show_report_button" id= <%= result[i].task_id %> name="button" value ="Manage">';
+                <% }else{ %>
+                    ht = ht + '\
+                    <input type="submit" class="accept_button" id= <%= result[i].task_id %> name="button" value ="Accept">\
+                    <input type="submit" class="task_detail_show_report_button" id= <%= result[i].task_id %> name="button" value ="Decline">';
+                <% } %>
+                        ht = ht + '\</div>';
+                <% } %>
+                <% }%>
+                document.getElementById("frames").innerHTML = ht;
+
+            </script>
+        </form>
+    </div>
+</div>
 </body>
+
 </html>

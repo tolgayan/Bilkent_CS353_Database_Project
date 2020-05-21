@@ -440,12 +440,12 @@
     <div class="previousTasksPage_container_title_underline"></div>
     <div class="previousTasksPage_tasks_container">
         <form action="tasks" method="post">
-        <div id="frames"></div>
-        <script>
-            <% if (result.length > 0){%>
-            let ht = '';
-            <% for(let i = 0; i < result.length; i++){ %>
-            ht += '\
+            <div id="frames"></div>
+            <script>
+                <% if (result.length > 0){%>
+                let ht = '';
+                <% for(let i = 0; i < result.length; i++){ %>
+                ht += '\
             <div class="previousTasksPage_tasks_container_task1">\
                 <div class="previousTasksPage_tasks_container_task_title">Club: <%= result[i].club_name %></div>\
                 <div class="previousTasksPage_tasks_container_task_title_underline"></div>\
@@ -467,22 +467,22 @@
                 <input type="hidden"  value= <%= result[i].status %> name="status">\
                 <input type="submit" class="task_detail_show_report_button" id= <%= result[i].task_id %> name="button" value ="Show Report">\
             </div>';
-            <% } %>
-            <% }%>
-            document.getElementById("frames").innerHTML = ht;
+                <% } %>
+                <% }%>
+                document.getElementById("frames").innerHTML = ht;
 
-            /*
-            function myFunction(id){
-                alert(id);
-                let xhttp = new XMLHttpRequest();
-                xhttp.open("POST", "/tasks", true);
-                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                xhttp.send("id=" + 1);
-            }
+                /*
+                function myFunction(id){
+                    alert(id);
+                    let xhttp = new XMLHttpRequest();
+                    xhttp.open("POST", "/tasks", true);
+                    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    xhttp.send("id=" + 1);
+                }
 
-             */
+                 */
 
-        </script>
+            </script>
         </form>
     </div>
 </div>

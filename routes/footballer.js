@@ -59,7 +59,7 @@ function cl(res, callback, query) {
 
 function func(res){
     console.log("our results " + footballer);
-    res.render('../views/footballer', { footballers: footballer});
+    res.render('footballer', { footballers: footballer});
 }
 
 function search(req, res){
@@ -153,8 +153,6 @@ router.post('/search', function (req, resp) {
 
 router.post('/', function (req, resp) {
     let value = req.body;
-
-    //console.log("Post: " + JSON.stringify(req.body));
     console.log("Post: " + req.body.id);
 });
 

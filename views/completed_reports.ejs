@@ -5,8 +5,8 @@
         position: absolute;
         width: 950px;
         height: 1891px;
-        left: 300px;
-        //top: -1px;
+        left: 280px;
+    //top: -1px;
         top: 240px;
 
         background: rgba(229, 229, 229, 0.8);
@@ -26,6 +26,7 @@
         font-size: 20px;
         line-height: 60px;
         border: white;
+        background: white;
         /* identical to box height */
 
         display: flex;
@@ -38,7 +39,7 @@
         position: absolute;
         width: 500px;
         height: 60px;
-        left: 620px;
+        left: 520px;
         top: 160px;
 
         font-family: Gothic A1;
@@ -60,7 +61,6 @@
         height: 560px;
         left: 180px;
         top: 91px;
-        margin-bottom: 35px;
 
         background: #FFFFFF;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -74,7 +74,7 @@
         left: 27px;
         top: 33px;
 
-        //background: url(default-profile.png);
+    //background: url(default-profile.png);
         border: 1px solid #AAAAAA;
         box-sizing: border-box;
     }
@@ -264,8 +264,8 @@
         background: #FF7527;
         border-radius: 32px;
 
-        //copy paste
-        font-family: Gothic A1;
+    //copy paste
+    font-family: Gothic A1;
         font-style: normal;
         font-weight: normal;
         font-size: 20px;
@@ -475,13 +475,12 @@
 <body>
 <div class="header">Task Reports</div>
 <div class="container">
-    <form role="form" method="post">
         <div id="frame"></div>
         <script>
-        <% if (reports.length > 0){%>
-        let ht = '';
-        <% for(let i = 0; i < reports.length; i++){ %>
-        ht += '\
+            <% if (reports.length > 0){%>
+            let ht = '';
+            <% for(let i = 0; i < reports.length; i++){ %>
+            ht += '\
         <div class="report_container">\
             <image src= "<%=reports[i].image%>" class="picture"></image>\
             <div class="name">Name: <%=reports[i].forename%></div>\
@@ -489,36 +488,16 @@
             <div class="nationality">Nationality: <%= reports[i].nationality %></div>\
             <div class="club">Club: <%=reports[i].club_name %></div>\
             <div class="comment">Comment: </div>\
-            <textarea id=<%= "text" + reports[i].report_id %> name="text" rows="4" cols="50" class="text_area"><%=reports[i].comment%> </textarea>\
+            <textarea disabled class="text_area"><%=reports[i].comment%> </textarea>\
             <div class="rating_container">\
                 <div class="rating">Rating: </div>\
-                <input type="text" id=<%= "rating" + reports[i].report_id %> name="rating" value= <%=reports[i].rating%> class="rating_text">\
+                <input type="text" disabled value= <%=reports[i].rating%> class="rating_text">\
             </div>\
-            <button type="button" class="edit_button" id= <%= reports[i].report_id %> onclick="myFunction(true, this.id)">Save Comment</button>\
-            <button type="button" class="remove_button" id= <%= reports[i].report_id %> onclick="myFunction(false, this.id)">Remove</button>\
         </div>';
-        <% } %>
-        <% }%>
-        document.getElementById("frame").innerHTML = ht;
-
-        function myFunction(edit, report_id){
-            let text = document.getElementById("text" + report_id).value;
-            let rating = document.getElementById("rating"+ report_id).value;
-            let xhttp = new XMLHttpRequest();
-            xhttp.open("POST", "/report", true);
-            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhttp.send('edit=' + edit + '&id=' + report_id + '&text=' + text + '&rating=' + rating);
-
-            if (edit == true)
-                alert("Your comment is saved.");
-            else{
-                alert("Footballer removed. Refresh the page.");
-            }
-        }
-
+            <% } %>
+            <% }%>
+            document.getElementById("frame").innerHTML = ht;
         </script>
-
-    </form>
 </div>
 
 <!--

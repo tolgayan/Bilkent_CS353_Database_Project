@@ -2,27 +2,18 @@ const express = require('express');
 const router = express.Router();
 const db = require("../public/javascripts/db");
 
-/* GET home page. */
-let users;
-router.get('/', function(req, res, next) {
-    cl(res, func);
+router.post('/', function(req, res, next) {
+    console.log(JSON.stringify(req.body));
 });
 
-function cl(res, callback) {
-    db.query("SELECT * FROM task, assignment WHERE task.id=assignment.task_id AND scout_id=1 ORDER BY assigned_date", (err, result) => {
+router.get('/', function(req, res, next) {
+    db.query("SELECT * FROM task, assign,club WHERE task.id=assign.task_id AND agency_id=10 AND club.id=assign.club_id ORDER BY assigned_date", (err, result) => {
         if (err) {
             throw err;
             console.log("error");
         }
-        users = result;
-        console.log(users);
-        callback(res);
+        res.render('../views/taskoffer.ejs', { result: result });
     });
-}
-
-function func(res){
-    console.log(users);
-    res.render('../views/taskoffer.ejs', { result: users });
-}
+});
 
 module.exports = router;
