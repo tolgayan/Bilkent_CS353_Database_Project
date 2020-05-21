@@ -3,12 +3,15 @@ mysql = require("mysql");
 /*
  * Create database connection
  */
+
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   //password: 'naruto1212',
   database: "scouting",
 });
+
+
 
 /*
  * Connect database
@@ -115,7 +118,7 @@ function create_tables() {
   // scout table
   db.query(
     " CREATE TABLE IF NOT EXISTS scout( \
-        user_id	int, \
+        user_id int, \
         agency_id int, \
         task_id	int, \
         scout_name varchar(25) not null, \
