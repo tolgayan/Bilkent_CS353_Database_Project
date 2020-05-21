@@ -163,8 +163,8 @@
     position: absolute;
     width: 740px;
     height: 1891px;
-    left: 453px;
-    top: -1px;
+    left: 450px;
+    top: 185px;
 
     background: rgba(255, 255, 255, 0.8);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -664,7 +664,7 @@
     position: absolute;
     width: 150px;
     height: 43px;
-    left: 276px;
+    left: 296px;
     top: 732px;
 
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -1275,7 +1275,64 @@
   .createTaskPage_footer_link {
     text-indent: 2em;
   }
+
+  .submit_button {
+    position: relative;
+    width: 150px;
+    height: 43px;
+    left: 454px;
+    top: 146px;
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    background: #E0CA00;
+    border-radius: 32px;
+  }
 </style>
+<script>
+  values_submitted = false;
+  function assign_task(objButton) {
+    console.log("Buraya giriyoz")
+    if (values_submitted) {
+      document.getElementsByName("scout_id").value = objButton.value;
+      document.getElementById("assigned_status").value = "assigned";
+      document.getElementById("submit").style.display = "block";
+
+      var names = ["transfer_price_max", "transfer_price_min", "salary_min", "salary_max", "preferred_foot", "number_of_scouts", "time_for_task", "position", "age_min", "age_max", "weight_min", "weight_max", "height_min", "height_max", "gender"];
+      data = ""
+      names.forEach( function(element){
+        data = data + "&" + element + "=" + document.getElementById(element).value;
+      });
+      console.log(data)
+      let xhttp = new XMLHttpRequest();
+      xhttp.open("POST", "/create_task", true);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+      xhttp.send(data);
+      //window.location.replace("http://localhost:4000/create_task/assign_task");
+    }
+
+  }
+  function submit_values() {
+    var filled = true;
+    var names = ["transfer_price_max", "transfer_price_min", "salary_min", "salary_max", "preferred_foot", "number_of_scouts", "time_for_task", "position", "age_min", "age_max", "weight_min", "weight_max", "height_min", "height_max", "gender"];
+    console.log("girdik")
+    names.forEach(element => {
+      console.log(element + " is found")
+      if (document.getElementById(element).value == "") {
+        console.log("false çıktı");
+        filled = false;
+      }
+    });
+    if (filled) {
+      console.log("filled");
+      values_submitted = true;
+      names.forEach(element => {
+        document.getElementById(element).disabled = true;
+      });
+    }
+  }
+</script>
 
 <head>
   <title> TRANSFERMAP </title>
@@ -1291,26 +1348,30 @@
 </head>
 
 <body>
-  <div class="createTaskPage_canvas">
-    <form action="/action_page.php">
+  <form class="createTaskPage_canvas" method="POST" action="create_task/assign_task">
+    <div id="task_details">
       <div class="createTaskPage_input_frame_gender">
         <label for="gender" class="createTaskPage_input_frame_gender_text">Gender:</label>
         <input type="text" id="gender" name="gender" class="createTaskPage_input_frame_gender_input"><br><br>
       </div>
       <div class="createTaskPage_input_frame_height">
         <label for="height" class="createTaskPage_input_frame_height_text">Height:</label>
-        <input type="text" id="height_min" name="height" class="createTaskPage_input_frame_height_input_min"><br><br>
-        <input type="text" id="height_max" name="height" class="createTaskPage_input_frame_height_input_max"><br><br>
+        <input type="text" id="height_min" name="height_min"
+          class="createTaskPage_input_frame_height_input_min"><br><br>
+        <input type="text" id="height_max" name="height_max"
+          class="createTaskPage_input_frame_height_input_max"><br><br>
       </div>
       <div class="createTaskPage_input_frame_weight">
         <label for="weight" class="createTaskPage_input_frame_weight_text">Weight:</label>
-        <input type="text" id="weight_min" name="weight" class="createTaskPage_input_frame_weight_input_min"><br><br>
-        <input type="text" id="weight_max" name="weight" class="createTaskPage_input_frame_weight_input_max"><br><br>
+        <input type="text" id="weight_min" name="weight_min"
+          class="createTaskPage_input_frame_weight_input_min"><br><br>
+        <input type="text" id="weight_max" name="weight_max"
+          class="createTaskPage_input_frame_weight_input_max"><br><br>
       </div>
       <div class="createTaskPage_input_frame_age">
         <label for="age" class="createTaskPage_input_frame_age_text">Age:</label>
-        <input type="text" id="age_min" name="age" class="createTaskPage_input_frame_age_input_min"><br><br>
-        <input type="text" id="age_max" name="age" class="createTaskPage_input_frame_age_input_max"><br><br>
+        <input type="text" id="age_min" name="age_min" class="createTaskPage_input_frame_age_input_min"><br><br>
+        <input type="text" id="age_max" name="age_max" class="createTaskPage_input_frame_age_input_max"><br><br>
 
       </div>
       <div class="createTaskPage_input_frame_position">
@@ -1334,72 +1395,83 @@
       </div>
       <div class="createTaskPage_input_frame_salary">
         <label for="salary" class="createTaskPage_input_frame_salary_text">Salary:</label>
-        <input type="text" id="salary_min" name="salary" class="createTaskPage_input_frame_salary_input_min"><br><br>
-        <input type="text" id="salary_max" name="salary" class="createTaskPage_input_frame_salary_input_max"><br><br>
+        <input type="text" id="salary_min" name="salary_min"
+          class="createTaskPage_input_frame_salary_input_min"><br><br>
+        <input type="text" id="salary_max" name="salary_max"
+          class="createTaskPage_input_frame_salary_input_max"><br><br>
       </div>
       <div class="createTaskPage_input_frame_transfer_price">
         <label for="transfer_price" class="createTaskPage_input_frame_transfer_price_text">Transfer price:</label>
-        <input type="text" id="transfer_price" name="transfer_price"
+        <input type="text" id="transfer_price_min" name="transfer_price_min"
           class="createTaskPage_input_frame_transfer_price_input_min"><br><br>
-        <input type="text" id="transfer_price" name="transfer_price"
+        <input type="text" id="transfer_price_max" name="transfer_price_max"
           class="createTaskPage_input_frame_transfer_price_input_max"><br><br>
       </div>
-      <input type="submit" value="Submit" class="createTaskPage_button_set_task">
-    </form>
 
+      <input type="text" id="scout_id" name="scout_id" style="display: none;">
+      <input type="text" id="assigned_status" name="assigned_status" style="display: none;" value="none">
+      <!-- <input type="submit" value="Submit" id="submit" class="createTaskPage_button_set_task">  -->
+
+    </div>
+    <button type="button" class="createTaskPage_button_set_task" onclick="submit_values()">Submit</button>
     <div class="createTaskPage_canvas_tab2">
       <div class="createTaskPage_canvas_tab2_title">Scouting Agency List</div>
       <% if(scout_agencies.length!=0){ %>
       <% scout_agencies.forEach(function(agency) {%>
-        <div class="createTaskPage_canvas_tab2_agency_frame_1">
-          <img src="http://localhost:4000/images/default_profile.png" class="createTaskPage_canvas_tab2_agency_frame_1_image">
-          <div class="createTaskPage_canvas_tab2_agency_frame_1_name">Name: <%=agency.agency_name%></div>
-          <div class="createTaskPage_canvas_tab2_agency_frame_1_price">Price Per Scout(per month): <%=agency.price_per_scout%></div>
-          <div class="createTaskPage_canvas_tab2_agency_frame_1_available_scouts">Available Scout Number: <%=agency.number_of_scouts%></div>
-          <button class="createTaskPage_canvas_tab2_agency_frame_1_assign_task_button">Assign Task</button>
-        </div>
+      <div class="createTaskPage_canvas_tab2_agency_frame_1">
+        <img src="http://localhost:4000/images/default_profile.png"
+          class="createTaskPage_canvas_tab2_agency_frame_1_image">
+        <div class="createTaskPage_canvas_tab2_agency_frame_1_name">Name: <%=agency.agency_name%></div>
+        <div class="createTaskPage_canvas_tab2_agency_frame_1_price">Price Per Scout(per month):
+          <%=agency.price_per_scout%></div>
+        <div class="createTaskPage_canvas_tab2_agency_frame_1_available_scouts">Available Scout Number:
+          <%=agency.number_of_scouts%></div>
+        <button type="button" class="createTaskPage_canvas_tab2_agency_frame_1_assign_task_button"
+          value="<%=agency.scout_id%>" onclick="assign_task(this)">Assign Task</button>
+        <input type="submit" value="Submit" id="submit" class="submit_button" style="display:none">
+      </div>
       <% })} else {%>
       <div class="createTaskPage_canvas_tab2_agency_frame_1">
-        <img src="http://localhost:4000/images/default_profile.png" class="createTaskPage_canvas_tab2_agency_frame_1_image">
+        <img src="http://localhost:4000/images/default_profile.png"
+          class="createTaskPage_canvas_tab2_agency_frame_1_image">
         <div class="createTaskPage_canvas_tab2_agency_frame_1_name">Name: </div>
         <div class="createTaskPage_canvas_tab2_agency_frame_1_price">Price Per Scout(per month): </div>
         <div class="createTaskPage_canvas_tab2_agency_frame_1_available_scouts">Available Scout Number: </div>
-        <button class="createTaskPage_canvas_tab2_agency_frame_1_assign_task_button">Assign Task</button>
       </div>
       <div class="createTaskPage_canvas_tab2_agency_frame_2">
-        <img src="http://localhost:4000/images/default_profile.png" class="createTaskPage_canvas_tab2_agency_frame_2_image">
+        <img src="http://localhost:4000/images/default_profile.png"
+          class="createTaskPage_canvas_tab2_agency_frame_2_image">
         <div class="createTaskPage_canvas_tab2_agency_frame_2_name">Name: </div>
         <div class="createTaskPage_canvas_tab2_agency_frame_2_price">Price Per Scout(per month): </div>
         <div class="createTaskPage_canvas_tab2_agency_frame_2_available_scouts">Available Scout Number: </div>
-        <button class="createTaskPage_canvas_tab2_agency_frame_2_assign_task_button">Assign Task</button>
       </div>
       <div class="createTaskPage_canvas_tab2_agency_frame_3">
-        <img src="http://localhost:4000/images/default_profile.png" class="createTaskPage_canvas_tab2_agency_frame_3_image">
+        <img src="http://localhost:4000/images/default_profile.png"
+          class="createTaskPage_canvas_tab2_agency_frame_3_image">
         <div class="createTaskPage_canvas_tab2_agency_frame_3_name">Name: </div>
         <div class="createTaskPage_canvas_tab2_agency_frame_3_price">Price Per Scout(per month): </div>
         <div class="createTaskPage_canvas_tab2_agency_frame_3_available_scouts">Available Scout Number: </div>
-        <button class="createTaskPage_canvas_tab2_agency_frame_3_assign_task_button">Assign Task</button>
       </div>
       <div class="createTaskPage_canvas_tab2_agency_frame_4">
-        <img src="http://localhost:4000/images/default_profile.png" class="createTaskPage_canvas_tab2_agency_frame_4_image">
+        <img src="http://localhost:4000/images/default_profile.png"
+          class="createTaskPage_canvas_tab2_agency_frame_4_image">
         <div class="createTaskPage_canvas_tab2_agency_frame_4_name">Name: </div>
         <div class="createTaskPage_canvas_tab2_agency_frame_4_price">Price Per Scout(per month): </div>
         <div class="createTaskPage_canvas_tab2_agency_frame_4_available_scouts">Available Scout Number: </div>
-        <button class="createTaskPage_canvas_tab2_agency_frame_4_assign_task_button">Assign Task</button>
       </div>
       <div class="createTaskPage_canvas_tab2_agency_frame_5">
-        <img src="http://localhost:4000/images/default_profile.png" class="createTaskPage_canvas_tab2_agency_frame_5_image">
+        <img src="http://localhost:4000/images/default_profile.png"
+          class="createTaskPage_canvas_tab2_agency_frame_5_image">
         <div class="createTaskPage_canvas_tab2_agency_frame_5_name">Name: </div>
         <div class="createTaskPage_canvas_tab2_agency_frame_5_price">Price Per Scout(per month): </div>
         <div class="createTaskPage_canvas_tab2_agency_frame_5_available_scouts">Available Scout Number: </div>
-        <button class="createTaskPage_canvas_tab2_agency_frame_5_assign_task_button">Assign Task</button>
       </div>
       <div class="createTaskPage_canvas_tab2_agency_frame_6">
-        <img src="http://localhost:4000/images/default_profile.png" class="createTaskPage_canvas_tab2_agency_frame_6_image">
+        <img src="http://localhost:4000/images/default_profile.png"
+          class="createTaskPage_canvas_tab2_agency_frame_6_image">
         <div class="createTaskPage_canvas_tab2_agency_frame_6_name">Name: </div>
         <div class="createTaskPage_canvas_tab2_agency_frame_6_price">Price Per Scout(per month): </div>
         <div class="createTaskPage_canvas_tab2_agency_frame_6_available_scouts">Available Scout Number: </div>
-        <button class="createTaskPage_canvas_tab2_agency_frame_6_assign_task_button">Assign Task</button>
       </div>
       <% } %>
       <div class="createTaskPage_footer_links">
@@ -1410,7 +1482,7 @@
         <a href="#" class="createTaskPage_footer_link">Next Page</a>
       </div>
     </div>
-  </div>
+  </form>
   <!-- <footer>
     <div class="mainpage_footer">
       <div class="mainpage_footer_text">CS353 GroupX c</div>
