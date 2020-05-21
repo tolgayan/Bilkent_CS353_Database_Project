@@ -110,4 +110,103 @@ router.post("/:userId([0-9]+)/modify", function (req, res) {
   }
 });
 
+router.get("/:userId([0-9]+)/add_scout", function (req, res, next) {
+  if (!req.session.user) res.redirect("http://localhost:4000");
+  if (req.session.user != req.params["userId"])
+    res.redirect("http://localhost:4000");
+
+  res.render("add_scout", { userId: req.params.userId });
+});
+
+router.get("/:userId([0-9]+)/see_scouts", function (req, res, next) {
+  if (!req.session.user) res.redirect("http://localhost:4000");
+  if (req.session.user != req.params["userId"])
+    res.redirect("http://localhost:4000");
+
+  let sql =
+    "SELECT * FROM scout_agency \
+    INNER JOIN scout on scout.agency_id=scout_agency.user_id \
+    WHERE scout_agency.user_id = " +
+    req.params["userId"];
+
+  db.query(sql, function (err, result, fields) {
+    if (err) throw err;
+    let all_scouts;
+
+    if (result != undefined) {
+      all_scouts = result;
+    } else {
+      all_scouts = [];
+    }
+
+    res.render("see_scouts", { all_scouts: all_scouts });
+  });
+});
+
+router.get("/:userId([0-9]+)/see_tasks", function (req, res, next) {
+  if (!req.session.user) res.redirect("http://localhost:4000");
+  if (req.session.user != req.params["userId"])
+    res.redirect("http://localhost:4000");
+
+  let sql =
+    "SELECT * FROM scout_agency \
+      INNER JOIN task on task.agency_id=scout_agency.user_id \
+      WHERE scout_agency.user_id = " +
+    req.params["userId"];
+
+  db.query(sql, function (err, result, fields) {
+    if (err) throw err;
+    let all_tasks;
+
+    if (result != undefined) {
+      all_tasks = result;
+    } else {
+      all_tasks = [];
+    }
+
+    res.render("see_tasks", { all_tasks: all_tasks });
+  });
+});
+
+router.post("/:userId([0-9]+)/add_scout", function (req, res, next) {
+  if (!req.session.user) res.redirect("http://localhost:4000");
+  if (req.session.user != req.params["userId"])
+    res.redirect("http://localhost:4000");
+
+  let usersql = "INSERT INTO user SET ?";
+  let specsql = "INSERT INTO scout SET ?";
+
+  let uservalues = {
+    password: req.body.password,
+    email: req.body.email,
+    usertype: "scout",
+  };
+
+  let specvalues = {
+    agency_id: req.params["userId"],
+    scout_name: req.body.scout_name,
+    is_available: true,
+  };
+
+  db.query(usersql, uservalues, (err, result) => {
+    if (err) throw err;
+    let user_id = result.insertId;
+    console.log("user id:" + user_id);
+    specvalues.user_id = user_id;
+    db.query(specsql, specvalues, (err, result) => {
+      if (err) throw err;
+      res.redirect("http://localhost:4000/account");
+    });
+  });
+});
+
+router.get("/:userId([0-9]+)/add_footballer", function (req, res, next) {
+  if (!req.session.user) res.redirect("http://localhost:4000");
+  if (req.session.user != req.params["userId"])
+    res.redirect("http://localhost:4000");
+
+  res.render("add_footballer");
+
+});
+
 module.exports = router;

@@ -1,8 +1,8 @@
 <html>
-  <base href="/account/" />
-
+  
   <head>
     <title>Express</title>
+
   </head>
   <body>
     <% if(userData.length!=0){ %> <% if(userData.usertype == "club") {%>
@@ -35,7 +35,7 @@
         email: <%=userData.email %>
       </li>
     </ul>
-    <a href="<%=userData.use_id%>/add_footballer"><button>Add Footballer</button></a>
+    <a href="account/<%=userData.use_id%>/add_footballer"><button>Add Footballer</button></a>
     <% } else if(userData.usertype == "scout_agency") {%>
     <ul>
       <li>
@@ -51,7 +51,9 @@
         price per scout: <%=userData.price_per_scout %>
       </li>
     </ul>
-    <a href="todo"><button>See Tasks</button></a>
+    <a href="account/<%=userData.user_id%>/add_scout/"><button>Add Scout</button></a>
+    <a href="account/<%=userData.user_id%>/see_scouts/"><button>See Scouts</button></a>
+    <a href="account/<%=userData.user_id%>/see_tasks/"><button>See Tasks</button></a>
     <% } else if(userData.usertype == "scout") {%>
     <ul>
       <li>
@@ -106,7 +108,7 @@
       </li>
     </ul>
     <% } %> 
-    <a href="<%=userData.user_id %>/modify"><button>Edit Info</button></a>
+    <a href="http://localhost:4000/account/<%=userData.user_id %>/modify"><button>Edit Info</button></a>
     <%} else{ %>
 
     <p>No Data Found</p>

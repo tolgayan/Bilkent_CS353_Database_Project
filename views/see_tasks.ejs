@@ -1,0 +1,14 @@
+<html>
+  <head> </head>
+
+  <body>
+    <% if(all_tasks.length!=0){ %> 
+    <% all_tasks.forEach(function(task) {%>    
+    
+    <% Object.keys(task).forEach(function(key) { %>
+    <p><%=key%> : <%=task[key]%>  </p>
+    <% }) %> 
+    </br></br> 
+    <% }) %> <% } %>
+  </body>
+</html>
