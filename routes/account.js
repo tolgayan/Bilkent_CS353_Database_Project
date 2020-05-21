@@ -79,7 +79,7 @@ router.post("/:userId([0-9]+)/modify", function (req, res) {
     });
 
     Object.keys(specValues).forEach(function (key) {
-      if (specValues[key].length == 0) specValues[key] = 0;
+      if (specValues[key].length == 0) specValues[key] = null;
     });
 
     console.log(specValues);
@@ -143,28 +143,59 @@ router.get("/:userId([0-9]+)/see_scouts", function (req, res, next) {
   });
 });
 
-router.get("/:userId([0-9]+)/see_tasks", function (req, res, next) {
+router.post("/:userId([0-9]+)/see_scouts", function (req, res) {
   if (!req.session.user) res.redirect("http://localhost:4000");
   if (req.session.user != req.params["userId"])
     res.redirect("http://localhost:4000");
 
-  let sql =
-    "SELECT * FROM scout_agency \
-      INNER JOIN task on task.agency_id=scout_agency.user_id \
-      WHERE scout_agency.user_id = " +
-    req.params["userId"];
+  let usersql = "DELETE FROM user WHERE user_id = " + req.body.scout_id;
+  let specsql = "DELETE FROM scout WHERE user_id = " + req.body.scout_id;
+
+  db.query(specsql, (err, result) => {
+    if (err) throw err;
+    db.query(usersql, (err, result) => {
+      if (err) throw err;
+      res.redirect(
+        "http://localhost:4000/account/" + req.params["userId"] + "/see_scouts/"
+      );
+    });
+  });
+});
+
+router.get("/:userId([0-9]+)/see_tasks/", function (req, res, next) {
+  if (!req.session.user) res.redirect("http://localhost:4000");
+  if (req.session.user != req.params["userId"])
+    res.redirect("http://localhost:4000");
+
+  let sql = "SELECT * FROM user WHERE user_id = " + req.params["userId"];
 
   db.query(sql, function (err, result, fields) {
-    if (err) throw err;
-    let all_tasks;
+    let sql;
+    if (result[0].usertype == "scout_agency")
+      sql =
+        "SELECT * FROM scout_agency \
+      INNER JOIN task on task.agency_id=scout_agency.user_id \
+      WHERE scout_agency.user_id = " +
+        req.params["userId"];
+    else if (result[0].usertype == "scout")
+      sql =
+        "SELECT * FROM scout \
+      INNER JOIN task on task.id=scout.task_id \
+      WHERE scout.user_id = " +
+        req.params["userId"];
 
-    if (result != undefined) {
-      all_tasks = result;
-    } else {
-      all_tasks = [];
-    }
+    db.query(sql, function (err, result, fields) {
+      if (err) throw err;
+      let all_tasks;
 
-    res.render("see_tasks", { all_tasks: all_tasks });
+      if (result != undefined) {
+        all_tasks = result;
+      } else {
+        all_tasks = [];
+      }
+
+      res.render("see_tasks", { all_tasks: all_tasks });
+    });
   });
 });
 
@@ -205,8 +236,35 @@ router.get("/:userId([0-9]+)/add_footballer", function (req, res, next) {
   if (req.session.user != req.params["userId"])
     res.redirect("http://localhost:4000");
 
-  res.render("add_footballer");
+  res.render("add_footballer", { user_id: req.session.user });
+});
 
+router.post("/:userId([0-9]+)/add_footballer", function (req, res) {
+  if (!req.session.user) res.redirect("http://localhost:4000");
+  if (req.session.user != req.params["userId"])
+    res.redirect("http://localhost:4000");
+
+  let sql = "INSERT INTO footballer SET ?";
+  let values = {
+    agent_id: req.params["userId"],
+    forename: req.body.forename,
+    surname: req.body.surname,
+    position: req.body.position,
+    height: req.body.height,
+    weight: req.body.weight,
+    birth_date: req.body.birth_date,
+    foot: req.body.foot,
+    salary: req.body.salary,
+    transfer_price: req.body.transfer_price,
+    nationality: req.body.nationality,
+    image_id: req.body.image_id,
+    club_name: req.body.club_name,
+  };
+
+  db.query(sql, values, (err, result) => {
+    if (err) throw err;
+    res.redirect("http://localhost:4000/account/");
+  });
 });
 
 module.exports = router;
