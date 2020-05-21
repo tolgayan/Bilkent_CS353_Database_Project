@@ -15,7 +15,8 @@ const reportRouter = require('./routes/report');
 const bodyParser = require('body-parser');
 const accountRouter = require("./routes/account");
 const newsRouter = require("./routes/news");
-const addPostRouter = require("./routes/addpost"); 
+const addPostRouter = require("./routes/addpost");
+const scoutRouter = require("./routes/assign_scout");
 
 const app = express();
 
@@ -56,6 +57,7 @@ app.use('/footballer', footballerRouter);
 app.use('/tasks', tasks);
 app.use('/report', reportRouter);
 app.use("/account", accountRouter);
+app.use("/assign_scout", scoutRouter);
 app.use("/news", newsRouter);
 app.use("/news/addpost", addPostRouter);
 // catch 404 and forward to error handler

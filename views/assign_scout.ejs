@@ -153,19 +153,20 @@
 
     .previousTasksPage_container_title {
         position: absolute;
-        width: 441px;
-        height: 82px;
-        left: 500px;
-        top: 39px;
+        width: 478px;
+        height: 60px;
+        left: 420px;
+        top: 38px;
 
         font-family: Gothic A1;
         font-style: normal;
         font-weight: normal;
-        font-size: 36px;
-        line-height: 45px;
+        font-size: 48px;
+        line-height: 60px;
+        /* identical to box height */
+
         display: flex;
         align-items: center;
-        text-align: center;
 
         color: #000000;
     }
@@ -183,16 +184,23 @@
 
     .previousTasksPage_tasks_container {
         position: absolute;
-        left: 0px;
-        top: 0px;
+        width: 900px;
+        height: 1570px;
+        left: 175px;
+        top: 175px;
+
+        background: #E5E5E5;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
     }
 
     .previousTasksPage_tasks_container_task1 {
-        position: absolute;
-        width: 1140px;
-        height: 358px;
-        left: 0px;
-        top: 175px;
+        position: relative;
+        width: 750px;
+        height: 300px;
+        left: 75px;
+        top: 75px;
+        margin-bottom:40px;
 
         background: #F7F7F7;
         border-radius: 27px;
@@ -290,21 +298,16 @@
     }
 
     .previousTasksPage_tasks_container_task_details {
-        position: absolute;
-        width: 601px;
-        height: 255.21px;
-        left: 55px;
-        top: -35px;
+        position: relative;
+        width: 600px;
+        height: 217px;
+        left: 175px;
+        top: 100px;
+        margin-bottom: 40px;
 
-        font-family: Gothic A1;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 17px;
-        display: flex;
-        align-items: center;
-
-        color: #000000;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 12px;
     }
 
     .task_detail_height {
@@ -372,14 +375,106 @@
 
     .task_detail_show_report_button {
         position: absolute;
-        width: 151px;
-        height: 31.46px;
-        left: 919px;
-        top: 295px;
+        width: 167px;
+        height: 31px;
+        left: 443px;
+        top: 163px;
+        padding-left: 30px;
 
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        background: #E0CA00;
+        background: #BBEA9E;
         border-radius: 32px;
+    }
+
+    .image{
+        position: absolute;
+        width: 91px;
+        height: 91px;
+        left: 27px;
+        top: 33px;
+
+        border: 1px solid #AAAAAA;
+        box-sizing: border-box;
+
+    }
+
+    .assign{
+        position: absolute;
+        width: 167px;
+        height: 31px;
+        left: 443px;
+        top: 163px;
+
+        background: #BBEA9E;
+        border-radius: 32px;
+
+    }
+
+    .assigned{
+        position: absolute;
+        width: 140px;
+        height: 31px;
+        left: 400px;
+        top: 163px;
+
+        background: #BBEA9E;
+        border-radius: 32px;
+        background: #E3E3E3;
+    }
+
+    .name{
+        position: absolute;
+        width: 417px;
+        height: 33px;
+        left: 133px;
+        top: 33px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+
+    }
+
+    .surname{
+        position: absolute;
+        width: 417px;
+        height: 33px;
+        left: 133px;
+        top: 76px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+
+    }
+
+    .agency{
+        position: absolute;
+        width: 417px;
+        height: 33px;
+        left: 133px;
+        top: 119px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 27px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
     }
 
     .task_detail_choose_another_agency {
@@ -435,38 +530,36 @@
 
 <div class="previousTasksPage_container">
     <div class="previousTasksPage_container_title">
-        Tasks Assigned
+        Assign Scouts Page
     </div>
     <div class="previousTasksPage_container_title_underline"></div>
     <div class="previousTasksPage_tasks_container">
-        <form action="tasks" method="post">
             <div id="frames"></div>
             <script>
                 <% if (result.length > 0){%>
                 let ht = '';
                 <% for(let i = 0; i < result.length; i++){ %>
                 ht += '\
-            <div class="previousTasksPage_tasks_container_task1">\
-                <div class="previousTasksPage_tasks_container_task_title">Club: <%= result[i].club_name %></div>\
-                <div class="previousTasksPage_tasks_container_task_title_underline"></div>\
-                <div class="previousTasksPage_tasks_container_task_status_frame">\
-                    <div class="previousTasksPage_tasks_container_task_status_text">\
-                        Status: <%= result[i].status %>\
-                    </div>\
-                </div>\
                 <div class="previousTasksPage_tasks_container_task_details">\
-                    <p class="task_detail_height">Height: <%= result[i].height %></p>\
-                    <p class="task_detail_weight">Weight:  <%= result[i].weight %></p>\
-                    <p class="task_detail_age">Age: <%= result[i].age %></p>\
-                    <p class="task_detail_position">Position: <%= result[i].position %></p>\
-                    <p class="task_detail_time">Time: <%= result[i].time %></p>\
-                    <p class="task_detail_preferred_foot">Preferred foot: <%= result[i].foot %></p>\
-                    <p class="task_detail_salary">Salary: <%= result[i].salary %></p>\
-                    <p class="task_detail_transfer_price">Transfer Price: <%= result[i].transfer_price %></p>\
-                </div>\
-                <input type="hidden"  value= <%= result[i].status %> name="status">\
-                <input type="submit" class="task_detail_show_report_button" id= <%= result[i].task_id %> name="button" value ="Show Report">\
-            </div>';
+                    <img src= "" class="createTaskPage_canvas_tab2_agency_frame_1_image">\
+                    <p class="name">Name: <%= result[i].scout_name %></p>\
+                    <p class="surname">Surname:  <%= result[i].scout_surname %></p>\
+                    <p class="agency">Agency: <%= result[i].agency_name %></p>';
+
+                <% if (result[i].is_Available == true){%>
+                ht = ht + '\
+                    <form action="assign_scout/:id" method="post">\
+                    <input type="hidden" value= <%= result[i].scout_id %> name="scout_id">\
+                    <input type="submit" class="assign" id= <%= result[i].scout_id %> name="button" value ="Assign">\
+                    </form>';
+                <% }else{ %>
+                ht = ht + '\
+                    <form action=<%= result[i].task_id %>   method="post">\
+                    <input type="hidden" value= <%= result[i].scout_id %> name="scout_id">\
+                    <input type="submit" class="assigned" id= <%= result[i].scout_id %> name="button" value ="Assigned">\
+                    </form>';
+                <% } %>
+                ht = ht + '\</div>';
                 <% } %>
                 <% }%>
                 document.getElementById("frames").innerHTML = ht;
@@ -483,7 +576,6 @@
                  */
 
             </script>
-        </form>
     </div>
 </div>
 </body>

@@ -467,7 +467,6 @@
     </div>
     <div class="previousTasksPage_container_title_underline"></div>
     <div class="previousTasksPage_tasks_container">
-        <form action="offers" method="post">
             <div id="frames"></div>
             <script>
                 <% if (result.length > 0){%>
@@ -491,16 +490,21 @@
                     <p class="task_detail_preferred_foot">Preferred foot: <%= result[i].foot %></p>\
                     <p class="task_detail_salary">Salary: <%= result[i].salary %></p>\
                     <p class="task_detail_transfer_price">Transfer Price: <%= result[i].transfer_price %></p>\
-                </div>\
-                <input type="hidden" value= <%= result[i].id %> name="task_id">';
+                </div>';
 
                 <% if (result[i].status == 'accepted'){%>
                     ht = ht + '\
-                    <input type="submit" class="task_detail_show_report_button" id= <%= result[i].task_id %> name="button" value ="Manage">';
+                    <form action="offers" method="post">\
+                    <input type="hidden" value= <%= result[i].id %> name="task_id">\
+                    <input type="submit" class="task_detail_show_report_button" id= <%= result[i].id %> name="button" value ="Manage">\
+                    </form>';
                 <% }else{ %>
                     ht = ht + '\
-                    <input type="submit" class="accept_button" id= <%= result[i].task_id %> name="button" value ="Accept">\
-                    <input type="submit" class="task_detail_show_report_button" id= <%= result[i].task_id %> name="button" value ="Decline">';
+                    <form action="offers" method="post">\
+                    <input type="hidden" value= <%= result[i].id %> name="task_id">\
+                    <input type="submit" class="accept_button" id= <%= result[i].id %> name="button" value ="Accept">\
+                    <input type="submit" class="task_detail_show_report_button" id= <%= result[i].id %> name="button" value ="Decline">\
+                    </form>';
                 <% } %>
                         ht = ht + '\</div>';
                 <% } %>
