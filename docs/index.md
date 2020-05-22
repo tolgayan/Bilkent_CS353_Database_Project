@@ -2,7 +2,6 @@
 
 ## Group Members:
 * Enes MERDANE 
-* Mustafa Oğuz SATOĞLU 
 * Emre Tolga AYAN 
 * Şeyma Aybüke ERTEKİN
 
@@ -10,3 +9,5 @@
 * [Project Proposal]({{ site.baseurl }}/Proposal.pdf)
 * [Project Design Report]({{ site.baseurl }}/Project_Design_Report.pdf)
 * [Project Final Report]({{ site.baseurl }}/Final_Report.pdf)
+
+Rest in peace Mustafa Oğuz SATOĞLU 
