@@ -10,4 +10,4 @@
 * [Project Design Report]({{ site.baseurl }}/Project_Design_Report.pdf)
 * [Project Final Report]({{ site.baseurl }}/Final_Report.pdf)
 
-Rest in peace Mustafa Oğuz SATOĞLU 
+Rest in peace Mustafa Oğuz SATOĞLU :(
