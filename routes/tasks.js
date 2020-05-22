@@ -3,12 +3,14 @@ const router = express.Router();
 const db = require("../public/javascripts/db");
 
 db.query("CREATE VIEW IF NOT EXISTS completed_reports AS \
-         SELECT image, status, footballer.forename, assignment.task_id, final_report.rating, final_report.comment, scout.user_id, report_id, \
-         footballer.position, footballer.nationality, footballer.club_name FROM \
-         images, footballer, final_report, scout, assignment WHERE final_report.report_id IN \
-         (SELECT report_id FROM assignment, final_report WHERE assignment.status='complete' AND \
-         final_report.scout_id=assignment.scout_id AND final_report.task_id=assignment.task_id AND scout.user_id=assignment.scout_id) AND \
-         footballer.image_id=images.id AND footballer.player_id = final_report.player_id GROUP BY report_id", (err, result) => {
+                        SELECT image, status, footballer.forename, assignment.task_id, \
+                        final_report.rating, final_report.comment, scout.user_id, report_id, \
+                        footballer.position, footballer.nationality, footballer.club_name FROM\
+                        images, footballer, final_report, scout, assignment WHERE \
+                        final_report.report_id AND final_report.scout_id=assignment.scout_id \
+                        AND final_report.task_id=assignment.task_id AND scout.user_id=assignment.scout_id \
+                        AND footballer.image_id=images.id AND assignment.status='complete' \
+                        AND footballer.player_id = final_report.player_id GROUP BY report_id", (err, result) => {
     if (err) {
         throw err;
         console.log("error");
@@ -29,6 +31,7 @@ router.get('/', function(req, res, next) {
 });
 
 function aFunction(req, res){
+    console.log(req.body.id);
     if(req.body.status == "complete" ){
         db.query(`SELECT * FROM completed_reports WHERE user_id=4 AND task_id = ${req.body.id}`,(err, result) => {
             if (err) {
@@ -51,17 +54,6 @@ router.post('/', function (req,res) {
     aFunction(req, res);
 });
 
-router.get('/posts', function(req, res, next) {
-    console.log(req.body.id);
-    db.query(`SELECT * FROM completed_reports WHERE user_id=4 AND task_id = ${req.body.id}`,(err, result) => {
-        if (err) {
-            throw err;
-            console.log("error");
-        }
-        console.log("THIS:" + JSON.stringify(result));
-        res.render( "completed_reports", {reports: result});
-    });
-});
 
 
 module.exports = router;
