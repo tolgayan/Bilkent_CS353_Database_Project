@@ -4,7 +4,7 @@
     .container{
         position: absolute;
         width: 950px;
-        height: 1891px;
+        height: 2500px;
         left: 300px;
         //top: -1px;
         top: 240px;
@@ -60,6 +60,7 @@
         height: 560px;
         left: 180px;
         top: 91px;
+        padding-bottom: 35px;
         margin-bottom: 35px;
 
         background: #FFFFFF;
@@ -252,6 +253,33 @@
 
         font-color: #2F303E;
     }
+
+    .button{
+        position: relative;
+        width: 250px;
+        height: 43px;
+        left: 500px;
+        top: 125px;
+
+        background: #E0CA00;
+        border-radius: 32px;
+
+        font-family: Gothic A1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 25px;
+        /* identical to box height */
+
+        display: flex;
+        align-items: center;
+        text-align: center;
+        padding-left: 12px;
+
+        font-color: #2F303E;
+    }
+
+
 
     .remove_button{
         position: absolute;
@@ -517,7 +545,9 @@
         }
 
         </script>
-
+    </form>
+    <form method="post">
+        <input type="submit" class="button" id="button"  name="button[]" value ="Send Report">
     </form>
 </div>
 

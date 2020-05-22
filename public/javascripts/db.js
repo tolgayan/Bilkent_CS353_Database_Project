@@ -185,7 +185,8 @@ function create_tables() {
 
   //assign table
   db.query(
-    "CREATE TABLE IF NOT EXISTS assign(task_id int REFERENCES task(id), club_id int REFERENCES club(user_id), PRIMARY KEY(club_id, task_id));"
+    "CREATE TABLE IF NOT EXISTS assign(task_id int REFERENCES task(id), \
+     status ENUM('waiting', 'noagency', 'accepted'), club_id int REFERENCES club(user_id), PRIMARY KEY(club_id, task_id));"
   );
 
   //assignment table

@@ -543,10 +543,9 @@
                 <div class="previousTasksPage_tasks_container_task_details">\
                     <img src= "" class="createTaskPage_canvas_tab2_agency_frame_1_image">\
                     <p class="name">Name: <%= result[i].scout_name %></p>\
-                    <p class="surname">Surname:  <%= result[i].scout_surname %></p>\
                     <p class="agency">Agency: <%= result[i].agency_name %></p>';
 
-                <% if (result[i].is_Available == true){%>
+                <% if (result[i].is_available == 1){%>
                 ht = ht + '\
                     <form action="assign_scout/:id" method="post">\
                     <input type="hidden" value= <%= result[i].scout_id %> name="scout_id">\

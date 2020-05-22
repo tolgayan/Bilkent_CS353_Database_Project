@@ -20,8 +20,12 @@ db.query("CREATE VIEW IF NOT EXISTS players AS \
 });
 
 router.get('/', function(req, res, next) {
-    console.log("get" + req.body);
-    cl(res, func, "SELECT * FROM players");
+    if (!req.session.user) {
+        res.redirect("../login");
+    }
+    else {
+        cl(res, func, "SELECT * FROM players");
+    }
 });
 
 
@@ -35,30 +39,11 @@ function cl(res, callback, query) {
         footballer = result;
 
         console.log("our results 1" + JSON.stringify(result));
-
-        /*
-        for(let i = 0; i < result.length; i++){
-            db.query(`SELECT report_id FROM final_report WHERE player_id = '${result.player_id}'`, (err,  reports) => {
-                if (err) {
-                    throw err;
-                    console.log("error");
-                }
-               if(reports.length > 0) {
-                   added.push(true);
-                   console.log("added");
-               }
-               else
-                   added.push(false);
-            });
-        }
-
-         */
         callback(res);
     });
 }
 
 function func(res){
-    console.log("our results " + footballer);
     res.render('footballer', { footballers: footballer});
 }
 
@@ -80,10 +65,10 @@ function search(req, res){
                             age <= '${values.age[1]}' `;
         }
         if (checkbox.indexOf("position") > -1 ){
-            sql += `AND position LIKE '%${values.position}%' `;
+            sql += `AND position LIKE '${values.position}%' `;
         }
         if (checkbox.indexOf("foot") > -1 ){
-            sql += `AND foot LIKE '%${values.foot}%'`;
+            sql += `AND foot LIKE '${values.foot}%'`;
         }
     }
 
@@ -97,10 +82,10 @@ function search(req, res){
                             age <= '${values.age[1]}' `;
         }
         if (checkbox.indexOf("position") > -1) {
-            sql += `AND position LIKE '%${values.position}%' `;
+            sql += `AND position LIKE '${values.position}%' `;
         }
         if (checkbox.indexOf("foot") > -1) {
-            sql += `AND foot LIKE '%${values.foot}%'`;
+            sql += `AND foot LIKE '${values.foot}%'`;
         }
     }
 
@@ -111,10 +96,10 @@ function search(req, res){
                             age <= '${values.age[1]}' `;
         }
         if (checkbox.indexOf("position") > -1 ){
-            sql += `AND position LIKE '%${values.position}%' `;
+            sql += `AND position LIKE '${values.position}%' `;
         }
         if (checkbox.indexOf("foot") > -1 ){
-            sql += `AND foot LIKE '%${values.foot}%'`;
+            sql += `AND foot LIKE '${values.foot}%'`;
         }
     }
 
@@ -122,38 +107,58 @@ function search(req, res){
         sql += `WHERE age >= '${values.age[0]}' AND \
                             age <= '${values.age[1]}' `;
         if (checkbox.indexOf("position") > -1 ){
-            sql += `AND position LIKE '%${values.position}%' `;
+            sql += `AND position LIKE '${values.position}%' `;
         }
         if (checkbox.indexOf("foot") > -1 ){
-            sql += `AND foot LIKE '%${values.foot}%'`;
+            sql += `AND foot LIKE '${values.foot}%'`;
         }
     }
     else if(checkbox.indexOf("position") > -1 ){
-        sql += `WHERE position LIKE '%${values.position}%' `;
+        sql += `WHERE position LIKE '${values.position}%' `;
         if (checkbox.indexOf("foot") > -1 ){
-            sql += `AND foot LIKE '%${values.foot}%'`;
+            sql += `AND foot LIKE '${values.foot}%'`;
         }
     }
     if (checkbox.indexOf("foot") > -1 ){
-        sql += `WHERE foot LIKE '%${values.foot}%'`;
+        sql += `WHERE foot LIKE '${values.foot}%'`;
     }
 
-    //sql = `SELECT * FROM players WHERE nationality LIKE '%${values.nationality}%'`;
     cl(res, func, sql);
 }
 
 
 router.post('/search', function (req, resp) {
     let value = req.body;
-
-    //console.log("Post: " + JSON.stringify(req.body));
-    //console.log("Post: " + JSON.stringify(req.body));
     search(req, resp);
 });
 
+
+function funny(req, result){
+    db.query("SELECT * FROM assignment WHERE assignment.scout_id=4 AND assignment.status='incomplete'", (err, result) => {
+        if (err) {
+            throw err;
+            console.log("error");
+        }
+        callback(req, result);
+    });
+}
+
+function callback(req, result){
+    if(result.length > 0) {
+        console.log(result[0].task_id);
+        db.query(`INSERT INTO final_report (player_id, scout_id, task_id, rating, comment) VALUES('${req.body.id}', 4, '${result[0].task_id}', "", "")`, (err, res) => {
+            if (err) {
+                throw err;
+                console.log("error");
+            }
+        });
+    }
+}
+
+
+
 router.post('/', function (req, resp) {
-    let value = req.body;
-    console.log("Post: " + req.body.id);
+    funny(req, resp, callback);
 });
 
 

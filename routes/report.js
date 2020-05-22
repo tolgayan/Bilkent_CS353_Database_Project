@@ -8,8 +8,8 @@ db.query("CREATE VIEW IF NOT EXISTS uncompleted_reports AS \
          footballer.position, footballer.nationality, footballer.club_name FROM \
          images, footballer, final_report, assignment WHERE final_report.report_id IN \
          (SELECT report_id FROM assignment, final_report WHERE assignment.status='incomplete' AND \
-         final_report.scout_id=assignment.scout_id AND final_report.task_id=assignment.task_id) AND \
-         footballer.image_id=images.id AND footballer.player_id = final_report.player_id ", (err, result) => {
+          final_report.task_id=assignment.task_id) AND final_report.scout_id=assignment.scout_id AND \
+         footballer.image_id=images.id AND footballer.player_id = final_report.player_id GROUP BY final_report.report_id", (err, result) => {
     if (err) {
         throw err;
         console.log("error");
@@ -18,7 +18,7 @@ db.query("CREATE VIEW IF NOT EXISTS uncompleted_reports AS \
 
 
 function sql(res, callback){
-    db.query(`SELECT * FROM uncompleted_reports WHERE scout_id =1`, (err, result) => {
+    db.query(`SELECT * FROM uncompleted_reports WHERE assignment.scout_id =4`, (err, result) => {
         if (err) {
             throw err;
             console.log("error");
@@ -45,8 +45,7 @@ function update_delete(query, res){
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    console.log("fweg");
-    db.query(`SELECT * FROM uncompleted_reports WHERE scout_id =1`, (err, result) => {
+    db.query(`SELECT * FROM uncompleted_reports WHERE scout_id =4`, (err, result) => {
         if (err) {
             throw err;
             console.log("error");
@@ -67,12 +66,17 @@ router.post('/', function (req, resp) {
        update_delete(`UPDATE final_report SET comment='${req.body.text}',\
         rating='${req.body.rating}' WHERE report_id=${req.body.id}`, resp);
    }
-   else {
+   else if (edit =="false"){
        console.log(false);
-       update_delete(`DELETE FROM final_report WHERE report_id='${req.body.id}'`);
+       update_delete(`DELETE FROM final_report WHERE report_id='${req.body.id}'`, resp);
 
        //console.log("RESULT: " + JSON.stringify(result));
    }
+   else if (req.body.button[0]=='Send Report'){
+       update_delete('UPDATE assignment SET status="complete" WHERE scout_id=4');
+       resp.redirect('/tasks');
+   }
+
 
 });
 

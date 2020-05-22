@@ -4,7 +4,7 @@ const db = require('../public/javascripts/db');
 
 router.get("/", function (req, res) {
 
-    db.query("SELECT * FROM scout, agency WHERE agency.id='10' AND agency.id=agency_id",
+    db.query("SELECT * FROM scout, scout_agency WHERE scout_agency.user_id='1' AND scout_agency.user_id=agency_id",
               function (err, result) {
 
               if (err) throw err;
@@ -14,10 +14,10 @@ router.get("/", function (req, res) {
 
 router.get("/:id", function (req, res) {
 
-    db.query(`SELECT * FROM scout, agency, assignment WHERE agency_id='10' \
-              AND scout.agency_id=agency_id AND (scout.is_available = 'available' \
-              OR (assignment.scout_id=scout.scout_id AND assignment.task_id='${req.params.id}')) \
-              GROUP BY scout.scout_id`,
+    db.query(`SELECT * FROM scout, scout_agency, assignment WHERE agency_id=1 \
+              AND scout.agency_id=scout_agency.user_id AND (scout.is_available = 1 \
+              OR (assignment.scout_id=scout.user_id AND assignment.task_id=${req.params.id})) \
+              GROUP BY scout.user_id`,
         function (err, result) {
 
             if (err) throw err;
@@ -27,25 +27,32 @@ router.get("/:id", function (req, res) {
 });
 
 router.post("/", function (req, res) {
-
-    console.log("POST---" + JSON.stringify(req.params));
     res.redirect("/:id");
 });
 
 router.post("/:id", function (req, res) {
+    console.log("post:" + JSON.stringify(req.body));
     if (req.body.button == "Assigned"){
-        db.query(`DELETE FROM assignment WHERE scout_id='${req.body.scout_id}'`,
-                  `UPDATE scout SET is_available=true WHERE scout_id='${req.body.scout_id}'`,
+        db.query(`DELETE FROM assignment WHERE scout_id=${req.body.scout_id}`,
             function (err, result) {
                 if (err) throw err;
             });
+        db.query(`UPDATE scout SET is_available=1 WHERE user_id=${req.body.scout_id}`,
+            function (err, result) {
+                if (err) throw err;
+            });
+        res.redirect('/assign_scout/'+ req.params.id);
     }
     if (req.body.button == "Assign"){
-        db.query(`INSERT INTO assignment VALUES('${req.body.scout_id}', '${req.params.id}')`,
-            `UPDATE scout SET is_available=true WHERE scout_id='${req.body.scout_id}'`,
+        db.query(`INSERT INTO assignment VALUES(${req.body.scout_id}, ${req.params.id})`,
             function (err, result) {
                 if (err) throw err;
             });
+        db.query(`UPDATE scout SET is_available=0 WHERE scout_id=${req.body.scout_id}`,
+            function (err, result) {
+                if (err) throw err;
+            });
+        res.redirect('/assign_scout/'+ req.params.id);
     }
 });
 
