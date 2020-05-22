@@ -81,10 +81,10 @@ router.get('/', function (req, res, next) {
 
     sql = sql + values;
     console.log(sql);
-    db.query(sql, function (err, data, fields) {
+    db.query(sql, function (err, result) {
       if (err) throw err;
 
-      //res.redirect("../");
+      res.redirect("../");
     });
     // }
   });
