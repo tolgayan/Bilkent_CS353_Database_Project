@@ -9,3 +9,4 @@
 ## Documents:
 * [Project Proposal]({{ site.baseurl }}/Proposal.pdf)
 * [Project Design Report]({{ site.baseurl }}/Project_Design_Report.pdf)
+* [Project Final Report]({{ site.baseurl }}/Final_Report.pdf)
